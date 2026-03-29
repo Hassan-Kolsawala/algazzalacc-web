@@ -535,6 +535,170 @@
         "saved_credit_card_actions": {
           "edit": "يحرر"
         }
+      },
+      "payment_errors": {
+        "three_d_secure_throttled": "محاولات كثيرة جدًا؛ انتظر قبل المحاولة مرة أخرى",
+        "multiple_deferred_payment_not_allowed": "يُسمح بدفعة مؤجلة واحدة فقط لكل طلب. يرجى التحقق من طلبك وإعادة المحاولة.",
+        "shipping_must_match_billing": "يجب أن يتطابق عنوان الفواتير مع عنوان الشحن. استخدم طريقة دفع مختلفة.",
+        "shipping_company_required_error": "يتطلب {{shopName}} اسم شركة لعنوان الشحن.",
+        "decision_rule_block": "حدثت مشكلة في معالجة دفعتك. يُرجى الاتصال بمالك المتجر.",
+        "cancelled_payment": "تم إلغاء دفعتك. حاول مرة أخرى أو استخدم طريقة دفع مختلفة.",
+        "payment_method_not_applicable": "طريقة الدفع هذه غير قابلة للتطبيق. استخدم طريقة دفع مختلفة.",
+        "payment_method_billing_address": "حدثت مشكلة في عنوان الفواتير الخاص بطريقة الدفع التي اخترتها. يرجى التحقق من العنوان والمحاولة مرة أخرى أو استخدام طريقة دفع مختلفة.",
+        "test_mode_enabled_only_test_cards": "وضع الاختبار ممكّن، لا يمكن إضافة إلا بطاقات الائتمان الاختبارية.",
+        "expired_buyer_action": "انتهت مهلة طريقة الدفع. حاول مرة أخرى.",
+        "name_mismatch": "تحقق من تفاصيل بطاقتك. لا يتطابق الاسم الموجود على بطاقتك وعنوان الفواتير.",
+        "shop_pay_wallet_not_available": "Shop Pay غير متاح لعملية الدفع هذه.",
+        "market_manager_blocks_wallet_payments": "طريقة الدفع غير مدعومة في بلدك.",
+        "paypal_over_capture": "تم تحديث إجمالي طلبك. يُرجى الدفع باستخدام {{walletName}} لإتمام طلبك.",
+        "captcha_required": "أدخل معلومات الدفع وحل اختبار الكابتشا لإتمام عملية الشراء.",
+        "captcha_required_without_payment_information": "حل اختبار الكابتشا لإتمام عملية الشراء.",
+        "payment_credential_delegation_error": "حدثت مشكلة أثناء معالجة دفعتك. يُرجى اختيار طريقة دفع جديدة."
+      },
+      "shipping_errors": {
+        "payment_method_not_supported": "لا يمكنك استخدام طريقة الدفع هذه لـ %{country}. استخدم طريقة دفع مختلفة للشحن إلى هذا البلد.",
+        "unavailable_addresses_only_countries": "لا يمكن شحن طلبك إلا إلى {{countriesList}}. أضف عنوانًا جديدًا للمتابعة.",
+        "unavailable_address_country": "الشحن غير متوفر في البلد الذي اخترته. استخدم عنوانًا مختلفًا للمتابعة"
+      },
+      "processing": {
+        "remote_shops_payments_processing": "معالجة المدفوعات",
+        "remote_checkout_count": "%{current} من %{total}"
+      },
+      "payment_challenge_modal": {
+        "open_app_text": "افتح تطبيق {{paymentMethod}}"
+      },
+      "payment_gateway": {
+        "bank_account_label": "الحساب المصرفي",
+        "credit_or_debit_card_label": "بطاقة ائتمان/خصم"
+      },
+      "thank_you": {
+        "cashback_notice": "سوف تستلم استرداد النقود الخاص بك بعد 30 يومًا",
+        "payment_method_not_charged": "لم يتم تحصيل رسوم",
+        "confirmed_items_count": "%{confirmed_count} من أصل %{total_count} عنصر تم تأكيدها",
+        "items_fulfilled_by_store": {
+          "one": "المنتجات التي اشتريتها ستصلك من %{remote_shop_name}.",
+          "other": "المنتجات التي اشتريتها ستأتي من متاجر أخرى."
+        },
+        "thank_you_confirmed_with_email_description": {
+          "single_store": "ستصلك رسالة تأكيد بالبريد الإلكتروني قريبًا.",
+          "multi_store": "ستتلقى رسائل بريد إلكتروني منفصلة لتأكيد الطلب من كل متجر قريبًا"
+        },
+        "thank_you_confirmed_with_phone_description": {
+          "single_store": "ستتلقى رسالة تأكيد نصية قريبًا",
+          "multi_store": "ستتلقى رسائل تأكيد منفصلة من كل متجر قريبًا"
+        },
+        "thank_you_confirmed_with_email_and_phone_description": {
+          "single_store": "ستصلك رسالة تأكيد بالبريد الإلكتروني قريبًا.",
+          "multi_store": "ستتلقى رسائل بريد إلكتروني منفصلة لتأكيد الطلب من كل متجر قريبًا"
+        },
+        "thank_you_confirmed_orders_with_email": "ستصلك رسائل تأكيد منفصلة عبر البريد الإلكتروني تتضمن أرقام طلباتك قريبًا",
+        "thank_you_confirmed_orders_with_phone": "ستصلك قريبًا رسائل تأكيد منفصلة تتضمن أرقام طلباتك",
+        "thank_you_confirmed_orders_with_email_and_phone": "ستصلك رسائل تأكيد منفصلة عبر البريد الإلكتروني تتضمن أرقام طلباتك قريبًا",
+        "thank_you_unconfirmed_items_heading": {
+          "one": "لم يتم تأكيد عنصر واحد",
+          "other": "لم يتم تأكيد بعض العناصر"
+        },
+        "thank_you_unconfirmed_items_description": {
+          "one": "لم يتم تحصيل أي رسوم منك مقابل هذا",
+          "other": "لم تتم محاسبتك على هذه."
+        },
+        "thank_you_from_shop": "من %{shop_name}",
+        "thank_you_from_other_store": "من متجر آخر",
+        "track_your_order_link_text": "تتبع طلبك",
+        "checkout_again": "تسجيل الخروج مرة أخرى",
+        "checkout_on_remote_shop_link_text": "تحقق من %{remoteShopName}",
+        "checkout_on_another_store": "اطلع على متجر آخر",
+        "order_status_confirmed_with_installments_payment_return": "أعد انتباهك إلى موظف المبيعات.",
+        "confirmed_orders_title": "تم تأكيد طلباتك.",
+        "ready_for_pickup_description": "طلبك جاهز للاستلام. يرجى إحضار تأكيد الطلب عند الاستلام.",
+        "login_title": "قم بتسجيل الدخول لعرض تفاصيل الطلب كاملةً",
+        "customer_information_hidden_fields_message": "سجّل الدخول لعرض جميع معلومات العميل.",
+        "company_location_section_title": "الشركة والموقع",
+        "order_updates_subscribe_to_email_notifications_failed": "لا يمكننا تخزين هذا البريد الإلكتروني للتحديثات. حاول مرة أخرى أو استخدم بريدًا إلكترونيًا آخر.",
+        "verify_shop_account_title": "تحقق من حسابك في Shop",
+        "verify_shop_account_message": "تم حفظ معلوماتك باستخدام Shop، تحقق من حسابك لاستخدامها تلقائيًا في ملايين المتاجر.",
+        "verify_shop_account_cta": "التحقق من حسابك",
+        "verify_shop_account_confirmation": "تم حفظ تفاصيل الدفع",
+        "announcement": {
+          "collapse": "انهيار"
+        }
+      },
+      "review": {
+        "review_title": "أكمل طلبك",
+        "checkout_as_guest": "الدفع كضيف",
+        "account_more_actions": "إجراءات إضافية لهذا الحساب",
+        "checkout_a_different_way": "جرّب طريقة مختلفة",
+        "blocks": {
+          "company_location": "موقع الشركة",
+          "pickup_items_at": {
+            "one": "استلام %{count} عنصر في",
+            "other": "التقاط %{count} عنصر في"
+          },
+          "ship_items_to": {
+            "one": "شحن %{count} قطعة إلى",
+            "other": "شحن %{count} قطعة إلى"
+          }
+        }
+      },
+      "shop_policies": {
+        "policy_label": "السياسة",
+        "policies_label": "السياسات",
+        "select_policy_label": "اختر سياسة",
+        "subscription_policy": "إلغاءات",
+        "purchase_options_cancellation_policy": "إلغاءات",
+        "cookie_preferences": "ملفات تعريف الارتباط",
+        "terms_and_policies": "الشروط والسياسات"
+      },
+      "remote_policies": {
+        "unavailable_policy": "لم يتم تقديم %{policy_name} لهذا المتجر. لمزيد من المعلومات، اتصل بـ %{shop_name} مباشرةً."
+      },
+      "change_country": {
+        "currency_updated_for_country": "تم تحديث العملة الخاصة بـ %{country}"
+      },
+      "throttle": {
+        "too_many_attempts": {
+          "description": "حاول مرة أخرى بعد بضع دقائق"
+        }
+      },
+      "cart_checkout_validation": {
+        "runtime_error": "حدثت مشكلة أثناء معالجة طلبك. يُرجى التواصل مع مالك المتجر."
+      },
+      "pickup_point": {
+        "pickup_unavailable_banner_title": {
+          "one": "لا توجد نقاط استلام متاحة لمنتجك",
+          "other": "لا توجد نقاط استلام متاحة لعناصرك"
+        }
+      },
+      "error_page": {
+        "embed_errors": {
+          "storefront_password_required": "هذا المتجر محمي بكلمة مرور.",
+          "customer_account_required": "حساب العميل مطلوب لإتمام عملية الدفع",
+          "cart_completed": "تم إكمال عملية الدفع هذه بالفعل",
+          "invalid_cart": "العربة لم تعد صالحة",
+          "not_authorized": "فشل مصادقة عملية الدفع. تحقق من بيانات اعتماد التطبيق الخاص بك.",
+          "killswitch_enabled": "خدمة الدفع غير متوفرة مؤقتًا",
+          "policy_violation": "تعذر إكمال عملية الدفع بسبب قيود تهيئة السياسة.",
+          "unrecoverable_failure": "تعذر تحميل صفحة الدفع. حاول مجددًا"
+        }
+      },
+      "notice_banner": {
+        "payment_method_not_available_with_payment_terms": "طريقة الدفع التي حددتها لم تعد متاحة، لأن الدفع لهذا الطلب أصبح الآن بشروط {{paymentTerms}}",
+        "payment_method_not_available_with_fulfillment_terms": "طريقة الدفع التي حددتها لم تعد متاحة لأن الدفع لهذا الطلب مستحق الآن عند التسليم",
+        "payment_method_not_available_with_fixed_terms": "طريقة الدفع التي اخترتها غير متاحة لأن دفع هذا الطلب مستحق لاحقًا",
+        "payment_method_not_available_with_review_requirement": "وسيلة الدفع التي اخترتها لم تعد متاحة، لأن الدفع سيكون مستحقًا بمجرد تأكيد طلبك.",
+        "contact_information": {
+          "title": "معلومات الاتصال غير صالحة",
+          "header": "لتحديث معلوماتك، {{emailLink}}."
+        },
+        "validation_errors_banner": {
+          "heading": {
+            "one": "يوجد خطأ واحد:",
+            "other": "يوجد {{count}} خطأ/أخطاء:"
+          }
+        }
+      },
+      "review_address_modal": {
+        "title": "عنوان المراجعة"
       }
     },
     "notices": {
