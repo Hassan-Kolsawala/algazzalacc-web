@@ -534,8 +534,108 @@
         "saved_credit_card_info": "آخر أربعة أرقام",
         "saved_credit_card_cvv_verification": "لأغراض التحقق، أدخل رمز الأمان الخاص ببطاقتك.",
         "saved_credit_card_actions": {
-          "edit": "يحرر"
-        }
+          "edit": "يحرر",
+          "delete": "يمسح"
+        },
+        "saved_credit_cards_modal": {
+          "view_all_label": "عرض جميع البطاقات المحفوظة",
+          "done": "منتهي",
+          "cancel": "يلغي"
+        },
+        "add_credit_card_modal": {
+          "title": "إضافة بطاقة",
+          "save": "يحفظ",
+          "cancel": "يلغي"
+        },
+        "delete_credit_card_modal": {
+          "title": "حذف البطاقة",
+          "confirmation": "هل أنت متأكد أنك تريد حذف {{brandName}} التي تنتهي بـ {{lastDigits}} ؟",
+          "cancel": "يلغي",
+          "delete": "يمسح"
+        },
+        "edit_credit_card_modal": {
+          "title": "تعديل البطاقة",
+          "done": "منتهي",
+          "cancel": "يلغي",
+          "description": "يمكنك فقط تعديل عنوان إرسال الفاتورة الخاص ببطاقتك.",
+          "fields": {
+            "default": "تعيين كإعداد افتراضي",
+            "card_number": "رقم البطاقة",
+            "expiry": "تاريخ انتهاء الصلاحية",
+            "security_code": "رمز الأمان",
+            "name": "الاسم على البطاقة",
+            "billing": "مشروع قانون ل"
+          }
+        },
+        "expired_cards_info": {
+          "one": "هناك %{count} بطاقة منتهية الصلاحية، يمكنك عرضها وتعديلها في حسابك.",
+          "other": "هناك %{count} بطاقات منتهية الصلاحية، ويمكنك عرضها وتعديلها في حسابك."
+        },
+        "local_payment_method_receiver_notice": "بعد تقديم طلبك، ستتلقى تفاصيل الدفع. قم بالدفع في ماكينة الصراف الآلي أو عبر الإنترنت خلال {{dueDays}} يومًا.",
+        "order_edit_banner_title": "مطلوب دفع مبلغ {{amount_owed}}",
+        "order_edit_banner_subtitle": "تم تحديث طلبك {{order_number}} . راجع هذه التغييرات، ثم ادفع لتأكيد طلبك.",
+        "order_edit_banner_items_added": {
+          "one": "تمت الإضافة",
+          "other": "تمت إضافة %{count}"
+        },
+        "order_edit_banner_items_removed": {
+          "in_full": "تمت الإزالة",
+          "with_quantities": "تمت إزالة {{delta}} من {{quantity}}"
+        },
+        "order_edit_banner_items_returned": {
+          "in_full": "تم إرجاع {{quantity}}",
+          "with_quantities": "تم إرجاع {{delta}} من {{quantity}}"
+        },
+        "order_edit_banner_items_return_line_item_removed": {
+          "in_full": "تمت إزالته من العودة",
+          "with_quantities": "تمت إزالة {{delta}} من الإرجاع"
+        },
+        "order_edit_banner_single_item_added": "تمت الإضافة",
+        "order_edit_banner_multiple_items_added": "تمت إضافة {{amount}}",
+        "order_edit_banner_single_item_removed": "تمت الإزالة",
+        "order_edit_banner_multiple_items_removed": "تمت إزالة {{amount}}",
+        "order_edit_banner_single_item_returned": "عاد",
+        "order_edit_banner_multiple_items_returned": "تم إرجاع {{amount}}",
+        "order_edit_banner_single_item_return_line_item_removed": "تمت إزالته من العودة",
+        "order_edit_banner_multiple_items_return_line_item_removed": "تمت إزالة {{amount}} من الإرجاع",
+        "order_edit_banner_updated_order_label": "تم تحديث الطلب",
+        "gift_card_wrapper": {
+          "heading": "بطاقة هدية",
+          "apply_gift_card_label": "تطبيق بطاقة هدية",
+          "apply_another_gift_card_label": "تطبيق بطاقة هدية أخرى",
+          "gift_card_label": "بطاقة الهدايا %{identifier}",
+          "payment_tag": "بطاقة هدية",
+          "add_label": "أضف بطاقة هدية",
+          "manage_label": "إدارة بطاقات الهدايا"
+        },
+        "gift_card_store_credit": {
+          "add_label": "أضف بطاقة هدايا أو رصيد متجر",
+          "manage_label": "إدارة بطاقات الهدايا أو رصيد المتجر"
+        },
+        "gift_card_checkbox_label": "تطبيق بطاقة الهدية",
+        "custom_onsite_payment_method_modal": {
+          "title": "تأكيد الدفع المخصص في الموقع"
+        },
+        "markets_pro_disclaimer_terms_and_conditions": "الشروط والأحكام",
+        "markets_pro_disclaimer_privacy_policy": "سياسة الخصوصية",
+        "markets_pro_disclaimer_terms_and_conditions_title": "شروط وأحكام تاجر السجل",
+        "markets_pro_disclaimer_privacy_policy_title": "سياسة الخصوصية الخاصة بتاجر السجلات",
+        "purchase_order_number": {
+          "title": "رقم الطلب",
+          "label": "رقم الطلب (اختياري)"
+        },
+        "alternative_payment_currency_total_notice": "ملاحظة: سيتم تحصيل رسوم %{amount_due} منك.",
+        "alternative_payment_currency_total_manual_payment_notice": "ملحوظة: إجمالي المبلغ المحول هو %{amount_due}.",
+        "waiting_on_taxes_message": "إذا لم يتم حساب الضرائب الخاصة بك خلال الثواني القليلة القادمة، قم بتحديث الصفحة.",
+        "waiting_on_taxes_notice": "حساب الضرائب",
+        "payment_method": "طريقة الدفع",
+        "expired_payment_method": "انتهت صلاحية طريقة الدفع المحددة",
+        "payment_method_update_failed": "فشل تحديث طريقة الدفع.",
+        "proposed_gateway_unavailable": "بوابة الدفع المقترحة غير متاحة",
+        "pay_in_installments_split_pay_short": "4 دفعات بقيمة %{amount}",
+        "gift_cards_unavailable": "لم يعد من الممكن تطبيق بطاقة الهدية الخاصة بك على هذا الطلب وتم إزالتها",
+        "payment_flexibility_terms_id_mismatch": "شروط مرونة الدفع عدم تطابق المعرف",
+        "add_payment_method": "إضافة طريقة الدفع"
       },
       "payment_errors": {
         "three_d_secure_throttled": "محاولات كثيرة جدًا؛ انتظر قبل المحاولة مرة أخرى",
@@ -788,6 +888,42 @@
             "subtotal_limit_reached": "تم الوصول إلى الحد الأقصى لقيمة عناصر السطر."
           }
         }
+      },
+      "billing": {
+        "billing_address_title": "مشروع قانون ل",
+        "same_as_shipping": "نفس عنوان الشحن",
+        "add_address": "استخدم عنوان مختلف",
+        "edit": "يحرر",
+        "delete": "يمسح",
+        "address_more": "مزيد من الإجراءات لهذا العنوان",
+        "address_edit": "تعديل العنوان",
+        "address_delete": "حذف العنوان",
+        "address_confirm": "هل أنت متأكد أنك تريد حذف هذا العنوان من حسابك؟",
+        "address_form": {
+          "add_address": "إضافة عنوان",
+          "save": "يحفظ",
+          "cancel": "يلغي"
+        }
+      },
+      "payment_summary": {
+        "gift_card_current_balance_notice": "الرصيد الحالي %{amount}",
+        "credit_card_expires_on_notice": "تنتهي صلاحيتها في %{month}/%{year}",
+        "express_payment_gateway_label": "يعبر",
+        "manual_payment_gateway_label": "يدوي",
+        "billing_address_title": "عنوان الفاتورة",
+        "free_label": "حر"
+      },
+      "field_errors": {
+        "handle_phone_invalid": "أدخل رقم هاتف صالح",
+        "handle_email_invalid": "أدخل بريد إلكتروني صالح",
+        "email_invalid": "أدخل بريد إلكتروني صالح",
+        "email_or_phone_blank": "أدخل البريد الإلكتروني أو رقم الهاتف",
+        "email_or_phone_invalid": "أدخل بريدًا إلكترونيًا صالحًا أو رقم هاتف محمول",
+        "address_first_name_blank": "أدخل الاسم الأول",
+        "address_first_name_too_long": "الاسم الأول طويل جدًا (الحد الأقصى هو 255 حرفًا)",
+        "address_first_name_contains_emojis": "لا يمكن أن يحتوي الاسم الأول على رموز تعبيرية",
+        "address_first_name_contains_html_tags": "لا يمكن أن يحتوي الاسم الأول على علامات HTML.",
+        "address_first_name_contains_url": "لا يمكن أن يحتوي الاسم الأول على عنوان URL"
       }
     },
     "notices": {
