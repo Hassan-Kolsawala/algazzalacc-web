@@ -405,6 +405,136 @@
           "shipping_credential_cr": "رقم الهوية/RUT",
           "tax_credential_ec": "مدير/وحدة تنظيمية/ضريبة القيمة المضافة"
         }
+      },
+      "payment": {
+        "card_fields_unavailable_html": {
+          "one": "لا تتوفر إمكانية الدفع ببطاقات الائتمان والخصم في الوقت الحالي.<br> <a href=\"%{current_url}\">قم بتحديث هذه الصفحة</a> أو حاول مرة أخرى لاحقًا.",
+          "other": "لا تتوفر إمكانية الدفع ببطاقات الائتمان والخصم في الوقت الحالي.<br> <a href=\"%{current_url}\">قم بتحديث هذه الصفحة</a> أو جرب طريقة دفع أخرى."
+        },
+        "card_fields_processing_error": "حدثت مشكلة أثناء معالجة الدفع. حاول تحديث هذه الصفحة أو التحقق من اتصالك بالإنترنت.",
+        "technical_error": "لا يمكن معالجة المدفوعات الآن بسبب مشكلة فنية. حاول مرة أخرى بعد بضع دقائق.",
+        "no_method_error": "لا يمكن لهذا المتجر قبول المدفوعات في الوقت الحالي.",
+        "not_configured_error": "لا يمكن لهذا المتجر قبول المدفوعات في الوقت الحالي.",
+        "missing_credit_card_error": "أدخل تفاصيل بطاقتك لإتمام الدفع",
+        "payment_method_not_available_for_shipping_address_error": "طريقة الدفع غير متاحة لعنوان الشحن المحدد. اختر طريقة دفع أخرى.",
+        "generic_incorrect_card_info": "لم يتم التحقق من تفاصيل الدفع الخاصة بك. تحقق من تفاصيل بطاقتك وحاول مرة أخرى.",
+        "sofort_label": "تحويل بنكي سوفورت",
+        "paypal_label": "باي بال",
+        "paypal_wallet_label": "محفظة باي بال",
+        "shop_pay_installments_label": "تسوق وادفع بالتقسيط",
+        "default": "تقصير",
+        "paypal_modal": {
+          "order_contains_subscriptions": "الاشتراك",
+          "order_contains_fixed_selling_plans": "قد لا يشمل المبلغ الإجمالي الضرائب والشحن والرسوم المؤجلة وبعض الخصومات. تابع الدفع لمعرفة المبلغ المستحق اليوم."
+        },
+        "klarna_label": "كلارنا",
+        "klarna_pay_later_label": "ادفع لاحقًا مع Klarna",
+        "klarna_pay_now_label": "ادفع الآن مع Klarna",
+        "bancontact_label": "بانكونتاكت",
+        "giropay_label": "جيروباي",
+        "multibanco_label": "بنك متعدد",
+        "eps_label": "تحسين eps",
+        "klarna_slice_it_label": "التمويل مع كلارنا",
+        "bank_picker_label": "بنك",
+        "afterpay_label": "الدفع بعد الدفع",
+        "cashapppay_label": "تطبيق الدفع النقدي",
+        "przelewy24_label": "برزيلوي24",
+        "blik_label": "بليك",
+        "twint_label": "توينت",
+        "mobilepay_label": "الدفع عبر الهاتف المحمول",
+        "swish_label": "حفيف",
+        "vipps_label": "فيبس",
+        "grabpay_label": "جراب باي",
+        "kcp_creditcard_label": "بطاقة الائتمان KCP",
+        "purchase_options_card_update_agreement_label_html": "من خلال تحديث طريقة الدفع الخاصة بك، فإنك توافق على سداد أي مدفوعات لأي عملية شراء متكررة أو مؤجلة وفقًا <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{cancellation_policy}\" href=\"%{policy_href}\">لسياسة الإلغاء</a> الخاصة بهذا المتجر.",
+        "subscription_card_update_agreement_label": "سيؤدي تغيير طريقة الدفع إلى تحديث اشتراكك والمدفوعات المتكررة المستقبلية.",
+        "subscription_agreement_label": "إن أحد العناصر أو أكثر الموجودة في عربة التسوق الخاصة بك عبارة عن عملية شراء مؤجلة أو اشتراك. من خلال الاستمرار في الدفع، فإنك توافق على أن طريقة الدفع الخاصة بك سيتم تحصيل رسومها تلقائيًا بالسعر والتردد المدرجين في هذه الصفحة حتى تنتهي أو تقوم بإلغاء الاشتراك. تخضع جميع عمليات الإلغاء لـ %{cancelled}.",
+        "subscription_agreement_cancelled": "سياسة الإلغاء",
+        "subscription_heading": "اتفاقية الاشتراك",
+        "subscription_agreement_label_html": "أفهم أنني أوافق على الاشتراك. سيتم تجديده بالسعر والتردد المدرجين حتى ينتهي أو ينتهي\n <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{subscription_policy}\" href=\"%{policy_href}\">تم الغاء</a> .\n",
+        "purchase_options_agreement_label_wallets": "من خلال الاستمرار في الدفع، فإنك توافق على الرسوم المستقبلية المدرجة في هذه الصفحة وسياسة الإلغاء.",
+        "change_currency_section_description": "حدد خيار العملة",
+        "no_real_orders_dev_store": "لا يمكن لهذا المتجر قبول الطلبات الحقيقية أو المدفوعات الحقيقية.",
+        "waiting_on_payment_methods": "الحصول على طرق الدفع المتاحة...",
+        "apple_pay_payment_error": "لم تتمكن من إكمال عملية الدفع. حاول مرة أخرى أو استخدم طريقة دفع أخرى.",
+        "taxes_not_included": "الضرائب غير متضمنة",
+        "no_taxes_banner_content": "لن يتم فرض ضرائب على هذا الطلب. بمجرد تحصيل الدفعة، لن تتمكن من إضافة الضرائب بعد الآن.",
+        "paypal": {
+          "connect": "انقر هنا لتوصيل حساب PayPal الخاص بك"
+        },
+        "apple": {
+          "connect": "انقر هنا لتوصيل حساب Apple Pay الخاص بك",
+          "not_available": "لا تتوفر خدمة Apple Pay في هذا المتصفح. لتوصيل حساب Apple Pay الخاص بك، ستحتاج إلى استخدام Safari على جهاز Apple."
+        },
+        "google": {
+          "connect": "انقر للاتصال بحساب Google Pay الخاص بك",
+          "error_authorizing": "خطأ في تفويض الدفع"
+        },
+        "account_connected": "تم ربط الحساب.",
+        "mor_disclaimer_html": "من خلال النقر أدناه وإكمال طلبك، فإنك توافق على شراء منتجك (منتجاتك) من Global-e كتاجر مسجل\n لهذه المعاملة، وفقًا <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{mor_terms}\" href=\"%{terms_href}\">لشروط وأحكام</a> Global-e\n <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{privacy_policy}\" href=\"%{policy_href}\">وسياسة الخصوصية</a> . Global-e هي شركة دولية\n مزود خدمة الإيفاء لـ %{shop_name}\n",
+        "pending_payment": {
+          "due_notice": "يجب أن يتم سداد دفعتك البالغة %{amount_due} في %{due_date}.",
+          "multibanco": {
+            "buyer_action_info": "يجب عليك سداد مبلغ %{amount_due}.",
+            "instruction_html": "قم بإجراء الدفع في Multibanco أو عبر الإنترنت باستخدام التفاصيل أدناه. للاستفسارات أو لتحديث تفاصيل الدفع، يرجى الاتصال بـ %{contact_us}.",
+            "entity": "كيان",
+            "reference": "مرجع",
+            "amount": "كمية",
+            "find_nearest_atm": "ابحث عن أقرب ماكينة صراف آلي"
+          }
+        },
+        "update_payment_method": "تحديث طريقة الدفع",
+        "order_covered_by_store_credit_notice": "سيتم تغطية طلبك من خلال رصيد المتجر الخاص بك.",
+        "order_covered_by_redeemables_notice": "تم تغطية طلبك.",
+        "store_credit": {
+          "label": "رصيد المتجر",
+          "apply_label": "تطبيق رصيد المتجر",
+          "add_label": "إضافة رصيد المتجر",
+          "manage_label": "إدارة رصيد المتجر",
+          "buying_gift_card": "لا يمكنك استخدام رصيد المتجر لشراء بطاقة هدايا",
+          "no_fixed_selling_plans": "لا يمكنك استخدام رصيد المتجر مع خيارات الشراء المؤجلة"
+        },
+        "clear": "واضح",
+        "billing_must_match_shipping_notice": "يجب أن يتطابق عنوان إرسال الفاتورة الخاص بطريقة الدفع الخاصة بك مع عنوان الشحن.",
+        "same_billing_address_checkbox_label": "استخدم عنوان الشحن كعنوان إرسال الفاتورة",
+        "location_billing_address_label": "عنوان إرسال الفاتورة للموقع",
+        "fact_billing_address_label": "عنوان الفاتورة",
+        "location_shipping_address_label": "عنوان الشحن للموقع",
+        "use_order_billing_address_label": "استخدم عنوان إرسال الطلب",
+        "use_location_billing_address_label": "استخدم عنوان إرسال الفواتير للموقع",
+        "use_location_shipping_address_label": "استخدم عنوان الشحن للموقع",
+        "no_working_method_error": "لا يمكن لهذا المتجر قبول المدفوعات في الوقت الحالي. قم بتحديث هذه الصفحة أو العودة لاحقًا.",
+        "shipping_rate_updated": "تم تحديث طرق الشحن المتاحة. قم بتأكيد اختيارك قبل إتمام عملية الشراء.",
+        "billing_address_invalid_phone": "قم بتحديث رقم الهاتف الموجود في عنوان الفاتورة الخاص بك لـ {{label}} {{last_digits}} للمتابعة.",
+        "billing_address_invalid_phone_no_card": "قم بتحديث رقم الهاتف الموجود في عنوان الفاتورة الخاص بك للمتابعة.",
+        "preview_not_available": {
+          "title": "المعاينة غير متاحة",
+          "content": "لا تقلق، هذا الدفع السريع يناسب عملائك.",
+          "button": "نعم"
+        },
+        "card_fields": {
+          "errors": {
+            "required": {
+              "issue_date": "أدخل تاريخ إصدار صالحًا",
+              "issue_number": "أدخل رقم إصدار صالحًا"
+            },
+            "invalid": {
+              "verification_value": "أدخل رمز CVV أو رمز الأمان الصحيح"
+            }
+          }
+        },
+        "simulated_checkout": "المعاينة قادمة قريبا",
+        "simulated_express_checkout": "المحافظ غير متاحة في معاينة المحرر بسبب منطقتك أو متصفحك",
+        "vaulting_agreement_label": "احفظ معلومات الدفع الخاصة بي مع %{company} لإتمام عملية الدفع بشكل أسرع.",
+        "purchase_options_and_vaulting_agreement_label": "إن أحد العناصر أو أكثر الموجودة في عربة التسوق الخاصة بك عبارة عن عملية شراء مؤجلة أو اشتراك. من خلال الاستمرار في الدفع، فإنك توافق على أن طريقة الدفع الخاصة بك سيتم تحصيل رسومها تلقائيًا بالسعر والتردد المدرجين في هذه الصفحة حتى تنتهي أو تقوم بإلغاء الاشتراك. تخضع جميع عمليات الإلغاء لـ %{cancellation_policy_label}.",
+        "purchase_options_cancellation_policy_label": "سياسة الإلغاء",
+        "use_different_credit_card_label": "استخدم بطاقة مختلفة",
+        "saved_credit_card": "بطاقتك الإئتمانية المحفوظة",
+        "saved_credit_card_info": "آخر أربعة أرقام",
+        "saved_credit_card_cvv_verification": "لأغراض التحقق، أدخل رمز الأمان الخاص ببطاقتك.",
+        "saved_credit_card_actions": {
+          "edit": "يحرر"
+        }
       }
     },
     "notices": {
