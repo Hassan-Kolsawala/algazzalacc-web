@@ -880,7 +880,183 @@
       "policy_load_error": "تعذّر تحميل {{policyName}}",
       "policy_try_again": "حاول مرة أخرى",
       "log_out_link": "تسجيل الخروج",
-      "logout_overlay_label": "تسجيل الخروج..."
+      "logout_overlay_label": "تسجيل الخروج...",
+      "country_switcher_toast_message": "تم التبديل إلى {{countryName}}",
+      "switch_country": "تغيير البلد",
+      "no_countries_found": "لا توجد بلدان مطابقة",
+      "location_switcher_toast_message": "تم التبديل إلى {{locationName}}",
+      "switch_location": "تغيير الموقع",
+      "view_details": "عرض التفاصيل",
+      "company_location": "موقع الشركة"
+    },
+    "announcement_bar": {
+      "expand_label": "توسيع شريط الإعلانات",
+      "collapse_label": "طي شريط الإعلان",
+      "close_label": "إغلاق شريط الإعلانات"
+    },
+    "account_information": {
+      "profile_card": {
+        "email_help_text": "لا يمكن تعديل البريد الإلكتروني",
+        "editable_email_help_text": "يُستخدم هذا البريد الإلكتروني لتسجيل الدخول وتحديثات الطلبات.",
+        "phone_number_help_text": "لا يمكن تعديل رقم الهاتف",
+        "errors": {
+          "name_too_long": "{{fieldName}} طويل جداً (الحد الأقصى 255 حرفاً)",
+          "name_cannot_contain_url": "لا يمكن أن يحتوي {{fieldName}} على عنوان URL",
+          "name_cannot_contain_html_tags": "{{fieldName}} لا يمكن أن يحتوي على وسوم HTML",
+          "email_cant_be_blank": "البريد الإلكتروني لا يمكن أن يكون فارغًا"
+        }
+      },
+      "verify_new_email_modal": {
+        "title": "التحقق من البريد الإلكتروني",
+        "description": "أدخل الرمز المُرسل إلى {{email}}",
+        "one_time_password_label": "رمز مكون من 6 أرقام",
+        "email_resend_button": "إعادة إرسال الرمز",
+        "email_resend_button_accessibility_label": "إعادة إرسال رمز التحقق",
+        "verify_button": "تحقق",
+        "verify_button_accessibility_label": "التحقق من كلمة المرور لمرة واحدة",
+        "cancel_button_accessibility_label": "إلغاء تعديل البريد الإلكتروني",
+        "email_resend_button_success_toast_message": "تم إرسال رمز التحقق",
+        "email_resend_button_failure_banner_message": "تعذّر إرسال رمز التحقق"
+      },
+      "email_update_success_modal": {
+        "title": "التحقق من البريد الإلكتروني",
+        "description": "تم تحديث البريد الإلكتروني بنجاح. يتم إعادة التوجيه إلى صفحة تسجيل الدخول."
+      },
+      "email_update_confirmation_message": "تم تحديث البريد الإلكتروني إلى {{email}}"
+    },
+    "orders": {
+      "order_list": {
+        "empty_state_with_location_title": "لا توجد طلبات لـ {{locationName}}",
+        "location_filter_picker": {
+          "all_location": "كافة المواقع",
+          "current_location": "الموقع الحالي",
+          "switch_view": "تبديل طريقة العرض"
+        },
+        "view_order": "عرض الطلب",
+        "view_order_accessibility_label": "عرض الطلب {{orderName}}"
+      },
+      "order_status": {
+        "gift_card_resend_button": {
+          "one": "إعادة إرسال بطاقة الهدايا"
+        },
+        "expected_by": "متوقع بحلول {{date}}",
+        "was_expected_by": "كان متوقعًا بحلول {{date}}",
+        "delivery_promise": {
+          "details_modal": {
+            "shop_cash_claim": {
+              "may_be_eligible_not_authorized_label": "قد تكون مؤهلاً للمطالبة بمبلغ نقدي من المتجر لأن هذا الطلب وصل متأخرًا. سجّل الدخول لعرض التفاصيل."
+            }
+          }
+        }
+      },
+      "group_title_label_with_parent": "إلى: {{groupTitle}}"
+    },
+    "order_details": {
+      "order_details_skeleton_accessibility_label": "سجل الدخول لعرض كافة تفاصيل الطلب.",
+      "company_and_location": "الشركة والموقع",
+      "group_title_label_with_parent": "إلى: {{groupTitle}}",
+      "view_controls": {
+        "gallery": "معرض الصور"
+      },
+      "compare_at_sale": "تخفيضات ({{saleAmount}})",
+      "payment_confirmation": {
+        "payment_received": "شكرًا لك! تم استلام دفعة بقيمة {{amount}}.",
+        "full_payment_received": "شكرًا لك! تم استلام دفعتك البالغة {{amount}}، وهذا الطلب مدفوع بالكامل الآن.",
+        "payment_authorized": "شكرًا لك! سيتم تحديث الرصيد عند استلام الدفعة.",
+        "dismiss_label": "تجاهل تأكيد الدفع"
+      },
+      "login_card": {
+        "resend_link_and_login": "لعرض تفاصيل طلبك، سجّل الدخول أو أرسل رابطاً جديداً إلى عنوان البريد الإلكتروني أو رقم الهاتف المُستخدَم عند الدفع.",
+        "resend_link_only": "لعرض تفاصيل طلبك، أرسل رابطًا جديدًا إلى البريد الإلكتروني أو رقم الهاتف المستخدم عند إتمام عملية الشراء.",
+        "resend_link": "أرسل رابطًا جديدًا"
+      },
+      "marketing_pending_confirmation": "انقر على الرابط في بريدك الإلكتروني للتأكيد.",
+      "marketing_resend_email_success": "تم إرسال الرابط",
+      "returns": {
+        "exchange_header": "تبادل العناصر",
+        "exchange_subheader": "سيتم إضافة المنتجات المراد استبدالها إلى الطلب بمجرد اكتمال الإرجاع."
+      },
+      "subtotal_label_with_quantity": {
+        "other": "المجموع الفرعي · {{count}} من العناصر"
+      },
+      "login_to_view_all_order_details": "سجل الدخول لعرض كافة تفاصيل الطلب.",
+      "logged_in_account_no_permission_to_order": "لقد سجلت الدخول بصفتك {{email}}. لا يملك هذا الحساب صلاحية إدارة هذا الطلب.",
+      "log_in_to_a_different_account": "تسجيل الدخول إلى حساب مختلف",
+      "link_sent": "تم إرسال الرابط",
+      "due_on_receipt": "تستحق الدفع فور الاستلام"
+    },
+    "account_menu": {
+      "signed_out_state": {
+        "sheet_title": "تسجيل الدخول أو إنشاء حساب",
+        "section_divider": "طرق إضافية لتسجيل الدخول",
+        "use_email_button": "استخدم البريد الإلكتروني بدلاً من ذلك",
+        "shop_login_button": "تسجيل الدخول باستخدام Shop",
+        "continue_with_google": "المتابعة باستخدام Google",
+        "continue_with_facebook": "المتابعة باستخدام فيسبوك"
+      },
+      "signed_in_state": {
+        "greeting_with_name": "مرحباً، {{first_name}}"
+      },
+      "location_picker": {
+        "sheet_title": "المواقع"
+      },
+      "aria_labels": {
+        "close_menu": "إغلاق القائمة",
+        "back_to_main_menu": "العودة إلى القائمة الرئيسية من {{title}}",
+        "open_submenu": "{{title}}، يفتح قائمة فرعية",
+        "loading_menu": "قائمة التحميل",
+        "sign_in_with_email": "تسجيل الدخول بالبريد الإلكتروني"
+      }
+    },
+    "B2B": {
+      "location_selection": {
+        "description_switch_later": "يمكنك التبديل لاحقًا في أي وقت",
+        "search": "البحث عن المواقع",
+        "title_choose_location": "اختر موقعًا"
+      },
+      "draft_order_details": {
+        "payment_status": {
+          "pending": {
+            "banner_due_today_for_multiple_fulfillments": "الدفع مستحق اليوم لـ {{count}} طلب إنجاز",
+            "banner_overdue_for_multiple_fulfillments": "الدفع مستحق لـ {{count}} عملية إنجاز"
+          },
+          "total_balance": "إجمالي الرصيد"
+        }
+      }
+    },
+    "errors": {
+      "load_address_form_error": {
+        "title": "تعذر تحميل نموذج العنوان",
+        "description": "تعذر تحميل نموذج العنوان."
+      },
+      "logout_everywhere": {
+        "description": "حدث خطأ أثناء تسجيل الخروج. يُرجى المحاولة مرة أخرى."
+      },
+      "profile_name_update_error": {
+        "description": "حدثت مشكلة أثناء تحديث اسمك. حاول تحديث هذه الصفحة أو تحقق من اتصالك بالإنترنت."
+      },
+      "resend_link": {
+        "too_many_requests": "العديد من الطلبات. حاول مرة أخرى لاحقًا.",
+        "generic": "طلب فاشل"
+      },
+      "already_upgraded": "تمت ترقية حسابات العملاء بالفعل.",
+      "failed_to_upgrade": "فشل تحديث إعدادات حساب العميل.",
+      "not_upgraded": "لم تتم ترقية حسابات العملاء.",
+      "failed_to_revert": "فشل في استعادة إعدادات حساب العميل.",
+      "revert_window_expired": "انتهت صلاحية فترة التراجع."
+    },
+    "payment_methods": {
+      "replacement_payment_method_title": "طريقة دفع بديلة",
+      "add_payment_method_dropdown": {
+        "bank_account_consent": "بإضافة طريقة دفع، فإنك تفوض بخصم المبلغ من بطاقتك أو حسابك البنكي للمشتريات المستقبلية التي توافق عليها، وذلك إلى أن تقوم بالإلغاء."
+      },
+      "bank_account": {
+        "loading_accessibility_message": "زر الحساب البنكي قيد التحميل",
+        "iframe_title_accessibility_label": "إعداد الحساب المصرفي",
+        "display_name": "الحساب المصرفي",
+        "generic_error": "تعذرت إضافة الحساب البنكي. حاول مرة أخرى لاحقًا."
+      },
+      "card_update_consent_subscriptions": "سيتم حفظ طريقة الدفع هذه للمشتريات المستقبلية، وقد تُستخدم لأي عملية شراء متكررة أو مؤجلة."
     }
   },
   "sections": {
