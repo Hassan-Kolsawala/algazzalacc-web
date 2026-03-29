@@ -14,13 +14,17 @@
         "errors": {
           "delivery": {
             "out_of_stock_at_origin_location": "لا يوجد مخزون في موقع المنشأ.",
-            "invalid_signature": "توقيع الخصم غير صالح."
+            "invalid_signature": "توقيع الخصم غير صالح.",
+            "selected_pickup_option_no_longer_available": "خيار الاستلام الذي تم اختياره مسبقاً لم يعد متوفراً."
           },
           "discount": {
             "discounts_not_allowed_for_b2b": "لا يُسمح بالخصومات في متاجر B2B.",
             "custom_discount_not_honoured": "لم يتم الالتزام بالخصم المخصص المقدم.",
             "unsupported_expectation": "يتضمن خط الخصم المقدم توقعًا لا تستطيع السياسة تفسيره.",
-            "discount_title_too_long": "لا يمكن أن يتجاوز عنوان الخصم 255 حرفًا."
+            "discount_title_too_long": "لا يمكن أن يتجاوز عنوان الخصم 255 حرفًا.",
+            "additional_requested_discount_code_discarded": "{{code}} صالح ولكن غير قابل للتطبيق. تحقق من شروط الخصم.",
+            "additional_requested_discount_discarded": "الخصم ساري المفعول ولكنه غير قابل للتطبيق. يرجى التحقق من شروط الخصم.",
+            "allocations_mismatch": "لقد تغير رمز الخصم الخاص بك. يرجى مراجعة سلة التسوق والمحاولة مرة أخرى."
           },
           "tax": {
             "new_tax_must_be_accepted": "لقد تغيرت الضرائب المرتبطة بطلبك. راجعها وحاول مرة أخرى.",
@@ -112,6 +116,17 @@
           },
           "checkout_source": {
             "revoked": "لم يعد هذا الدفع متاحًا."
+          },
+          "session_identifier_not_unique_error": "حدث خطأ ما بطلبك، حاول إتمام الشراء مرة أخرى.",
+          "merchandise": {
+            "combined_listing_parent_not_purchasable": "لا يمكن شراء منتجات الأصل المجمعة المدرجة مباشرةً."
+          },
+          "buyer_identity": {
+            "customer_account_required": "يجب عليك تسجيل الدخول للمتابعة.",
+            "company_purchase_permission_required": "العميل ليس لديه إذن لتقديم طلبات الشركة.",
+            "personal_order_not_allowed": "الطلبات الشخصية غير مسموح بها لهذا المتجر.",
+            "lost_access_to_company": "فقد العميل الوصول إلى أي شركة.",
+            "contact_info_does_not_match_customer_account": "يجب أن تتطابق معلومات الاتصال مع الحساب الذي سجلت الدخول إليه."
           }
         },
         "full_price": "السعر الكامل:",
@@ -144,7 +159,8 @@
             "monday": "الاثنين",
             "tuesday": "يوم الثلاثاء"
           }
-        }
+        },
+        "remove_chip": "إزالة العنصر"
       },
       "memberships": {
         "delivery_promise_unfulfillable": "هذا العنوان غير مدعوم للعضوية الحالية.",
@@ -255,6 +271,139 @@
               "service_error": "تعذر التحقق من الإعفاء من ضريبة القيمة المضافة"
             }
           }
+        }
+      },
+      "embed": {
+        "header": {
+          "review_order": "راجع طلبك"
+        },
+        "shipping": {
+          "shipping_options": "اطلع على جميع خيارات الشحن"
+        },
+        "payment": {
+          "payment_options": "عرض جميع خيارات الدفع"
+        }
+      },
+      "payment_collection": {
+        "cancelled": "هذه الدفعة لم تعد مطلوبة. تفضل بزيارة صفحة الطلب للاطلاع على التفاصيل.",
+        "paid": "تم تقديم هذه الدفعة بالفعل. تفضل بزيارة صفحة الطلب للاطلاع على التفاصيل."
+      },
+      "contact": {
+        "email_rollup_accessibility_label": "خيارات البريد الإلكتروني",
+        "storefront_link": "الموقع الإلكتروني للتاجر",
+        "suburb_label": "ضاحية",
+        "phone_rollup_accessibility_label": "خيارات الهاتف",
+        "phone_country_code_label": "رمز البلد لرقم الهاتف"
+      },
+      "delivery_options": {
+        "pick_up_locations": "مواقع الالتقاء",
+        "pickup_point_map_title": "خريطة نقطة الاستلام",
+        "company_location_no_address_banner": "الطلبات التي يتم شحنها إلى مواقع لا تحتوي على عنوان سيتم إرسالها للمراجعة."
+      },
+      "customer_account": {
+        "sign_out_link_label": "تسجيل الخروج",
+        "rollup_accessibility_label": "خيارات الحساب"
+      },
+      "remote_merchandise_only": {
+        "remote_only_notice": "يتم بيع هذه المنتجات وشحنها بواسطة متاجر أخرى. قم بالدفع لدى كل متجر لإتمام عملية الشراء.",
+        "checkout_on_shop_label": "اطلع على %{shop_name}",
+        "single_shop_transition": "جارٍ إعادة توجيهك إلى %{advertiser} لإكمال عملية الشراء."
+      },
+      "stock": {
+        "price_update": {
+          "updated_price": "السعر المحدث"
+        }
+      },
+      "order_summary": {
+        "for_add_on": "لـ: %{group_title}",
+        "from_shop_heading": "من %{shop_name}",
+        "from_other_stores_heading": "من متاجر أخرى",
+        "from_multiple_stores_heading": "من متاجر متعددة",
+        "discount_code_applied_with_code": "تم تطبيق رمز الخصم %{code}",
+        "discount_code_removed": "تمت إزالة رمز الخصم %{code}",
+        "discount_code_replaced": "تمت إزالة رمز الخصم %{old_code} وتم تطبيق %{code} بدلاً منه",
+        "discount_code_replaced_multiple": "تمت إزالة العديد من أكواد الخصم وتم تطبيق %{code}",
+        "discount_code_allocations_mismatch": "تم تغيير رمز الخصم <strong style=\"text-transform:uppercase\">%{code}</strong> الخاص بك. يرجى مراجعة عربة التسوق والمحاولة مرة أخرى.",
+        "order_discounts_apply_to_local_shop": "خصومات الطلبات تنطبق فقط على سلع من %{shop_name}",
+        "gift_cards_apply_to_local_shop": "بطاقات الهدايا تنطبق فقط على المنتجات من %{shop_name}",
+        "add_discount_or_gift_card": "أضف رمز الخصم أو بطاقة الهدايا",
+        "pickup_unavailable_banner_title": {
+          "one": "لا توجد متاجر متاحة تحتوي على هذا المنتج.",
+          "other": "لا توجد متاجر متاحة تحتوي على العناصر الخاصة بك"
+        },
+        "pickup_unavailable_banner_title_with_country": {
+          "one": "لا توجد متاجر متاحة في %{country} تحتوي على هذا المنتج",
+          "other": "لا توجد متاجر متاحة في %{country} تحتوي على أغراضك"
+        },
+        "unconfirmed_label": "غير مؤكد",
+        "estimated_taxes_label_short": "تقديرية",
+        "estimated_taxes_finalization_tooltip_content_short": "تم الانتهاء من الضريبة بعد الدفع",
+        "total_due_label": "الإجمالي المستحق",
+        "total_price_label": "السعر الكلي",
+        "deposit_label": "إيداع",
+        "compare_at_sale": "المبيعات (%{sale_amount})",
+        "unit_price": {
+          "per_item": {
+            "single": "%{price} للقطعة",
+            "one": "%{price} لكل %{count} قطعة",
+            "other": "%{price} لكل %{count} قطعة"
+          }
+        },
+        "deferred_payment_info": {
+          "paid_today_next": "تم الدفع اليوم"
+        },
+        "deferred_total_due_date_label_next": "تستحق في %{date}",
+        "pay_merchant_label": "دفع إلى %{merchant_name}",
+        "discount_applies_to_subscription_items_only": "هذا الخصم ينطبق فقط على عناصر الاشتراك"
+      },
+      "shipping": {
+        "shipping_method_rollup_accessibility_label": "خيارات طريقة الشحن",
+        "delivery_to": "التسليم إلى",
+        "unbranded_default_description": "جاهز للشحن",
+        "unbranded_description_same_day": "الشحن في نفس يوم العمل",
+        "unbranded_description_with_fulfillment_days": {
+          "one": "تشحن في يوم العمل التالي",
+          "other": "يشحن خلال %{count} أيام عمل"
+        },
+        "unbranded_description_with_fulfillment_weeks": {
+          "one": "يشحن خلال أسبوع",
+          "other": "تشحن في غضون %{count} أسابيع"
+        },
+        "prime_not_available": {
+          "default": "لا يتوفر التوصيل بـ \"برايم\" لطلبك. تم تحديث خيارات الشحن الخاصة بك."
+        },
+        "shipping_address_rollup_accessibility_label": "خيارات عنوان الشحن",
+        "third_party_address_timeout": "تعذّر تحميل العناوين. أعد المحاولة أو استخدم عنوانًا آخر.",
+        "third_party_address_error": "حدث خطأ أثناء تحميل تحديد العنوان. أدخل عنوانك يدويًا بالأسفل.",
+        "third_party_payment_timeout": "تعذر تحميل طرق الدفع. أعد المحاولة أو استخدم طريقة دفع مختلفة.",
+        "third_party_payment_error": "حدث خطأ أثناء تحميل اختيار الدفع. الرجاء استخدام طريقة دفع مختلفة.",
+        "address_form": {
+          "update": "حفظ التغييرات",
+          "generic_error": "حدثت مشكلة أثناء حفظ عنوانك. حاول مرة أخرى."
+        },
+        "invalid_shipping_method_summary_selected": "اختر عنوان شحن مختلفًا لعرض طرق الشحن المتاحة",
+        "local_pickup": {
+          "rollup_accessibility_label": "خيارات موقع الاستلام"
+        },
+        "split_shipping_first_shipment_notice": "سوف يصل طلبك الأول في %{quantity_shipments}",
+        "add_new_delivery_address": "إضافة عنوان توصيل جديد",
+        "choose_new_address": "اختر عنوانًا جديدًا"
+      },
+      "localized_fields": {
+        "additional_information": {
+          "shipping_credential_kr": "الرمز الجمركي الشخصي",
+          "shipping_credential_cn": "رقم هوية المقيم",
+          "tax_credential_it": "الرقم الضريبي (اختياري)",
+          "tax_email_it": "PEC (اختياري)",
+          "tax_credential_cl": "روث",
+          "shipping_credential_cl": "روث",
+          "tax_credential_co": "رقم الهوية/الرقم الضريبي",
+          "tax_credential_type_co": "نوع الهوية",
+          "shipping_credential_co": "رقم الهوية/الرقم الضريبي",
+          "shipping_credential_type_co": "نوع الهوية",
+          "tax_credential_cr": "رقم الهوية/RUT",
+          "shipping_credential_cr": "رقم الهوية/RUT",
+          "tax_credential_ec": "مدير/وحدة تنظيمية/ضريبة القيمة المضافة"
         }
       }
     },
