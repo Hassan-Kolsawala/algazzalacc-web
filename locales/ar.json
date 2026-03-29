@@ -990,7 +990,14 @@
         }
       },
       "review_address_modal": {
-        "title": "عنوان المراجعة"
+        "title": "عنوان المراجعة",
+        "subtitle": {
+          "one": "سيتم شحن هذا الطلب إلى العنوان الذي قدمه التاجر.",
+          "other": "سيتم شحن هذا الطلب إلى عنوان يوفره التاجر. يرجى تحديد عنوان الشحن."
+        },
+        "subtitle_no_match": "هذا العنوان لا يتطابق مع أي من عناوينك المحفوظة.",
+        "subtitle_must_use": "سيتم شحن طلبك إلى هذا العنوان.",
+        "continue": "أكمل باستخدام هذا العنوان"
       },
       "wallets": {
         "return_to_store": "العودة إلى المتجر",
@@ -1014,7 +1021,8 @@
           "detour": {
             "stock_problems": "لم تعد بعض العناصر متوفرة. أغلق {{walletName}} وحاول مرة أخرى.",
             "price_change": "لقد تغيرت أسعار بعض المنتجات. أغلق {{walletName}} لمراجعة طلبك وحاول مرة أخرى.",
-            "queue": "لقد تم وضعك في قائمة انتظار لإتمام عملية الشراء. أغلق {{walletName}} للمتابعة."
+            "queue": "لقد تم وضعك في قائمة انتظار لإتمام عملية الشراء. أغلق {{walletName}} للمتابعة.",
+            "currency_change": "لا يمكنك استخدام عنوان مختلف مع {{walletName}}. استخدم العنوان الأصلي أو جرب طريقة دفع مختلفة."
           },
           "unsupported": {
             "address": "لا يمكن للتاجر التسليم إلى هذا العنوان",
@@ -1022,7 +1030,8 @@
             "postal_code": "هذا الموقع غير مدعوم"
           },
           "outdated": {
-            "shipping_method": "لقد تغيرت خيارات الشحن لطلبك. راجع اختيارك."
+            "shipping_method": "لقد تغيرت خيارات الشحن لطلبك. راجع اختيارك.",
+            "payment_terms": "لقد تغيرت شروط الدفع. راجع طلبك"
           },
           "invalid": {
             "shipping_address": "أدخل عنوان شحن صالحًا",
@@ -1054,19 +1063,30 @@
             "country": "حدد البلد/المنطقة",
             "zip": "أدخل الرمز البريدي",
             "billing_zip": "أدخل عنوان الفاتورة والرمز البريدي",
-            "phone": "أدخل رقم الهاتف"
+            "phone": "أدخل رقم الهاتف",
+            "contact_info": "أدخل معلومات الاتصال"
           },
           "formatting": {
             "name_contains_emojis": "احذف الرموز التعبيرية من اسمك",
             "postal_code_contains_emoji": "حذف الرموز التعبيرية من الرمز البريدي الخاص بك",
             "first_name_too_long": "الاسم الأول يحتوي على عدد كبير جدًا من الحروف",
-            "last_name_too_long": "الاسم الأخير يحتوي على عدد كبير جدًا من الحروف"
+            "last_name_too_long": "الاسم الأخير يحتوي على عدد كبير جدًا من الحروف",
+            "address_too_long": "سطر العنوان طويل جداً"
           },
-          "select_different_shipping_address_to_resolve_errors": "عنوان الشحن الخاص بك غير صالح. حدد عنوانًا مختلفًا أو استخدم عنوانًا جديدًا."
+          "select_different_shipping_address_to_resolve_errors": "عنوان الشحن الخاص بك غير صالح. حدد عنوانًا مختلفًا أو استخدم عنوانًا جديدًا.",
+          "discount_code": "لا يمكن تطبيق رمز الخصم هذا. يُرجى مراجعة الرمز والمحاولة مرة أخرى.",
+          "terminal": "حدثت مشكلة في {{walletName}}. الرجاء استخدام طريقة دفع مختلفة.",
+          "processing_error_checkout_as_guest": "حدثت مشكلة أثناء معالجة دفعتك. يرجى إعادة المحاولة أو {{checkout_as_guest_link}}."
         },
         "scrim": {
-          "cancel": "يلغي"
-        }
+          "cancel": "يلغي",
+          "continue_purchase_in_window": "أكمل عملية الشراء في نافذة {{walletName}}",
+          "and_return_to_checkout": "والعودة إلى صفحة الدفع"
+        },
+        "redirect_hint": "سيُطلب منك تسجيل الدخول باستخدام {{walletName}}.",
+        "place_order": "تقديم طلب",
+        "redirection_notice": "ستتم إعادة توجيهك إلى {{walletName}} لإتمام عملية الشراء.",
+        "recovery_notice": "توجد مشكلة في تفاصيل طلبك. حدّث معلوماتك لإتمام عملية الدفع."
       },
       "note": {
         "length_exceeds_maximum": "قم بتقليل حجم الملاحظة إلى 5000 حرف أو أقل."
@@ -1076,7 +1096,8 @@
           "merchandise": {
             "gift_card_price_must_be_greater_than_zero": "يجب أن يكون سعر بطاقة الهدايا أكبر من 0.",
             "gift_card_price_must_not_exceed_limit": "لا يجب أن يتجاوز سعر بطاقة الهدايا %{gift_card_limit}.",
-            "subtotal_limit_reached": "تم الوصول إلى الحد الأقصى لقيمة عناصر السطر."
+            "subtotal_limit_reached": "تم الوصول إلى الحد الأقصى لقيمة عناصر السطر.",
+            "signature_mismatch": "عدم تطابق توقيع السلع للسطر %{stable_id}."
           }
         }
       },
@@ -1166,6 +1187,139 @@
           "processing": "يعالج…",
           "submit": "يُقدِّم"
         }
+      },
+      "local_pickup": {
+        "location_address_search_placeholder": "%{postal_code_label} أو العنوان",
+        "location_closest": "أقرب موقع يتوفر فيه منتجك",
+        "location_information": {
+          "one": "يوجد موقع واحد %{count} به مخزون قريب منك",
+          "other": "يوجد %{count} موقع به مخزون قريب منك."
+        },
+        "location_information_far_away": {
+          "one": "هناك موقع واحد يحوي العنصر الخاص بك",
+          "other": "هناك %{count} مواقع تحتوي على السلعة الخاصة بك"
+        },
+        "location_nearby": {
+          "one": "يوجد موقع واحد قريب يتوفر به منتجك.",
+          "other": "توجد %{count} مواقع قريبة تحتوي على المنتج الذي تبحث عنه."
+        },
+        "location_nearby_short": {
+          "one": "موقع واحد قريب تتوفر فيه سلعتك",
+          "other": "%{count} مواقع قريبة تحتوي على المنتج الذي تبحث عنه"
+        },
+        "location_far_away": {
+          "one": "%{count} موقع يتضمن سلعتك",
+          "other": "%{count} مواقع تتوفر فيها سلعتك"
+        },
+        "toggle_more_locations": {
+          "one": "موقع آخر",
+          "other": "%{count} مواقع إضافية"
+        },
+        "toggle_multiple_locations": "%{count}+ مواقع أخرى",
+        "all_stores_far_away": {
+          "title": "أقرب المواقع تبعد أكثر من %{distance}",
+          "title_with_item": {
+            "one": "أقرب موقع يتوفر به المنتج على بُعد أكثر من %{distance} من %{location}",
+            "other": "الموقع الأقرب الذي يحتوي على طلبك يبعد أكثر من %{distance} عن %{location}"
+          },
+          "title_with_specific_location": "أقرب موقع يتوفر به العنصر الذي طلبته يبعد أكثر من %{distance} عن %{location}",
+          "description": "حدد موقعًا أو %{ship_to_address_link}",
+          "ship_to_address_link": "الشحن إلى العنوان",
+          "change_location_link": "تغيير موقعك"
+        },
+        "selected_pickup_option_no_longer_available": {
+          "title": "موقعك الذي حددته سابقًا لم يعد متوفرًا",
+          "description": "حدد موقعًا جديدًا أو %{ship_to_address_link}",
+          "ship_to_address_link": "الشحن إلى العنوان"
+        },
+        "pickup_unavailable_banner_title": {
+          "one": "لا توجد مواقع يتوفر فيها العنصر الذي تبحث عنه",
+          "other": "لا توجد مواقع تحتوي على أغراضك."
+        },
+        "pickup_unavailable_banner_title_with_country": {
+          "one": "لا توجد مواقع في %{country} تحتوي على هذا المنتج.",
+          "other": "لا توجد مواقع في %{country} تتضمن العناصر الخاصة بك"
+        },
+        "pickup_unavailable_banner_body": {
+          "ship_items": "اشحن أغراضك",
+          "search_elsewhere": "ابحث في مكان آخر",
+          "ship_items_or_search_elsewhere": "%{ship_items} أو %{search_elsewhere}"
+        }
+      },
+      "split_delivery": {
+        "pickup_all_items": "التقط جميع العناصر",
+        "items_for_pickup": "عناصر للاستلام",
+        "items_for_shipping": "مواد الشحن",
+        "delivery_method": "طريقة التسليم المجزأ",
+        "delivery_method_menu": "قائمة طرق التسليم المقسم",
+        "inventory_issue_banner": {
+          "heading": {
+            "cannot_be_picked_up": {
+              "one": "لا يمكن التقاط %{count} من الأصناف",
+              "other": "لا يمكن التقاط %{count} من العناصر"
+            },
+            "cannot_be_shipped": {
+              "one": "لا يمكن شحن %{count} قطعة",
+              "other": "لا يمكن شحن %{count} صنفاً"
+            }
+          },
+          "remove_item": {
+            "one": "إزالة العنصر",
+            "other": "إزالة العناصر"
+          },
+          "ship_separately": {
+            "one": "اشحنها على حدة",
+            "other": "شحنهم بشكل منفصل"
+          },
+          "pick_them_up_in_store": {
+            "one": "استلام من المتجر",
+            "other": "استلمها من المتجر"
+          },
+          "remove_items_or_ship": "%{remove_items_link} أو %{ship_separately_link}",
+          "remove_items_or_pickup": "%{remove_items_link} أو %{pickup_in_store_link}"
+        }
+      },
+      "b2b_errors": {
+        "lost_b2b_purchasing_permissions": "لم يعد لديك إذن لتقديم طلبات B2B. %{logout_url} لتقديم طلب شخصي بدلاً من ذلك.",
+        "log_out_link_text": "تسجيل الخروج",
+        "lost_permissions_subtitle": "لم يعد لديك إذن لتقديم طلبات B2B. سجّل الخروج لتقديم طلب شخصي.",
+        "lost_permissions_title": "لا توجد أذونات للموقع"
+      },
+      "offsite_payment_failed": {
+        "title": "فشلت عملية الدفع خارج الموقع",
+        "payment_not_processed_title": "فشلت عملية الدفع",
+        "payment_not_processed_text": "حاول مسح رمز الاستجابة السريعة (QR) مرة أخرى. إذا استمر عدم عمله، فأبلغ موظفينا وحاول استخدام طريقة دفع مختلفة.",
+        "payment_link_expired_title": "انتهت صلاحية رابط الدفع",
+        "payment_link_expired_text": "حاول مسح رمز الاستجابة السريعة مرة أخرى."
+      },
+      "remote": {
+        "errors": {
+          "only_remote_merchandise_lines": "لا يحتوي سلة الشراء إلا على بضائع بعيدة. يلزم إعادة التوجيه إلى المتجر البعيد لإتمام عملية الشراء.",
+          "currency_mismatch": "لا يمكن إضافة هذا العنصر إلى سلة التسوق الخاصة بك لأنه من متجر يستخدم عملة مختلفة.",
+          "currency_mismatch_removal": "تمت إزالة عنصر من سلة التسوق الخاصة بك لأنه من متجر يستخدم عملة مختلفة.",
+          "max_remote_shops_exceeded": "لا يمكن إضافة هذا المنتج لأن سلة التسوق الخاصة بك تحتوي بالفعل على الحد الأقصى من المتاجر الأخرى."
+        }
+      },
+      "units": {
+        "milligram": "ملغم",
+        "kilogram": "كجم",
+        "milliliter": "مل",
+        "centiliter": "نكل",
+        "cubic_meter": "م³",
+        "millimeter": "ملم",
+        "centimeter": "سم",
+        "square_meter": "م²",
+        "ounce": "أوقية",
+        "pound": "رطل",
+        "fluid_ounce": "أونصة سائلة",
+        "pint": "نقطة",
+        "quart": "كم",
+        "gallon": "فتاة",
+        "inch": "في",
+        "foot": "قدم",
+        "yard": "يا",
+        "square_foot": "قدم مربع",
+        "item": "صنف"
       }
     },
     "notices": {
