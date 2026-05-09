@@ -12,12 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "custom_liquid_QPJTiR": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<div id=\"variant-description-container\">\n  {{ product.selected_or_first_available_variant.metafields.custom.variant_description | metafield_tag }}\n</div>\n\n<script>\n  // This script \"listens\" for the variant change event\n  document.addEventListener('DOMContentLoaded', function() {\n    // We listen for the URL change (Shopify updates the ?variant= ID in the URL)\n    window.addEventListener('popstate', function() {\n       // A quick delay to let the theme finish its internal swap\n       setTimeout(() => {\n         location.reload(); \n       }, 50);\n    });\n\n    // Or, for themes that use a 'change' event on the inputs:\n    const variantSelectors = document.querySelectorAll('input[type=\"radio\"], select[name=\"id\"]');\n    variantSelectors.forEach(selector => {\n      selector.addEventListener('change', () => {\n        // This forces the page to grab the new metafield data\n        setTimeout(() => {\n          location.reload(); \n        }, 100);\n      });\n    });\n  });\n</script>"
-          }
-        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -44,6 +38,12 @@
             "swatch_shape": "circle"
           }
         },
+        "custom_liquid_QPJTiR": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div id=\"variant-description-container\">\n  {{ product.selected_or_first_available_variant.metafields.custom.variant_description | metafield_tag }}\n</div>\n\n<script>\n  // This script \"listens\" for the variant change event\n  document.addEventListener('DOMContentLoaded', function() {\n    // We listen for the URL change (Shopify updates the ?variant= ID in the URL)\n    window.addEventListener('popstate', function() {\n       // A quick delay to let the theme finish its internal swap\n       setTimeout(() => {\n         location.reload(); \n       }, 50);\n    });\n\n    // Or, for themes that use a 'change' event on the inputs:\n    const variantSelectors = document.querySelectorAll('input[type=\"radio\"], select[name=\"id\"]');\n    variantSelectors.forEach(selector => {\n      selector.addEventListener('change', () => {\n        // This forces the page to grab the new metafield data\n        setTimeout(() => {\n          location.reload(); \n        }, 100);\n      });\n    });\n  });\n</script>"
+          }
+        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
@@ -67,12 +67,12 @@
         }
       },
       "block_order": [
-        "custom_liquid_QPJTiR",
         "vendor",
         "title",
         "rating",
         "price",
         "variant_picker",
+        "custom_liquid_QPJTiR",
         "quantity_selector",
         "buy_buttons",
         "description",
