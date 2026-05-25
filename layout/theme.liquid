@@ -381,5 +381,41 @@
       color: #ffffff !important;
   }
 </style>
+{% comment %}
+<!-- Designed by OnHOW YouTube Channel hide out of stock items -->
+{% endcomment %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function hideOutOfStock() {
+      const productItems = document.querySelectorAll('.grid__item, .slider__slide');
+      
+      productItems.forEach(item => {
+        if (item.querySelector('.card-wrapper.product-card-wrapper')) {
+          const soldOutBadge = item.querySelector('.badge.badge--bottom-left');
+          if (soldOutBadge && soldOutBadge.textContent.trim() === "{{ 'products.product.sold_out' | t }}") {
+            item.style.display = 'none';
+          }
+        }
+      });
+    }
+    
+    hideOutOfStock();
+    
+    const observer = new MutationObserver(function(mutations) {
+      for (let mutation of mutations) {
+        if (mutation.type === 'childList' && mutation.addedNodes.length) {
+          hideOutOfStock();
+          break;
+        }
+      }
+    });
+    
+    observer.observe(document.body, { 
+      childList: true, 
+      subtree: true 
+    });
+  });
+</script>
   </body>
 </html>
