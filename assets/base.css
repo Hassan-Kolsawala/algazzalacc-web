@@ -2340,6 +2340,10 @@ input[type='checkbox'] {
 .section-header ~ .shopify-section-group-header-group {
   z-index: initial;
 }
+/* Hide out of stock variants */
+.js.product-form__input.product-form__input--pill input.disabled + label {
+    display: none;
+}
 
 /* Main Header Layout */
 .header-wrapper {
