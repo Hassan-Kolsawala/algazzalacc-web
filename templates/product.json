@@ -78,6 +78,12 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "sku_6wQP3V": {
+          "type": "sku",
+          "settings": {
+            "text_style": "subtitle"
+          }
         }
       },
       "block_order": [
@@ -92,7 +98,8 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share"
+        "share",
+        "sku_6wQP3V"
       ],
       "settings": {
         "enable_sticky_info": true,
