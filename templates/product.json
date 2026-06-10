@@ -26,13 +26,6 @@
             "show_inventory_quantity": true
           }
         },
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "body"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -89,7 +82,6 @@
       "block_order": [
         "custom_liquid_ktVQmz",
         "inventory_hwr337",
-        "vendor",
         "title",
         "rating",
         "price",
