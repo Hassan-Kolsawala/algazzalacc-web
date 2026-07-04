@@ -3602,8 +3602,8 @@ details-disclosure > details {
   }
 }
 
-/* shopify show only 5 words then 3 dots continued in shopify featured products description and not the entire title in mobile view */
-@media screen and (max-width: 749px) {
+/* shopify show only 5 words then 3 dots continued in shopify featured products description and not the entire title in mobile/tablet/desktop view */
+
   /* Targets the heading inside the product card for Refresh */
   .card__heading,
   .card__information .title {
@@ -3615,4 +3615,4 @@ details-disclosure > details {
     text-overflow: ellipsis !important;
     word-break: break-word !important;
   }
-}
+
