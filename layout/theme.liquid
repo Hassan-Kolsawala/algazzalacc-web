@@ -417,5 +417,16 @@
     });
   });
 </script>
+{% comment %}
+<!-- connecting zoho salesIQ to shopify -->
+{% endcomment %}
+ <script>
+	window.$zoho = window.$zoho || {};
+	$zoho.salesiq = $zoho.salesiq || {
+		ready: function(){}
+	}
+</script>
+<script id = "zsiqscript" src = "https://salesiq.zoho.com/widget?wc=siq886388871a434a95066ea513539a630ff40b5290a435958ae0f8b50499c13e37" defer >
+</script>
   </body>
 </html>
