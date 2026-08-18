@@ -94,6 +94,12 @@
     },
     "featured-collection-0": {
       "type": "featured-collection",
+      "custom_css": [
+        ".page-width{max-width:100%!important;padding:0!important}",
+        ".title-wrapper-with-link{padding:0 3rem}",
+        ".slider{padding:0 2rem!important}",
+        "@media(max-width:749px){.title-wrapper-with-link,.slider{padding:0 1.5rem!important}}"
+      ],
       "name": "Body Support Cushions",
       "settings": {
         "collection": "body-support-cushions",
