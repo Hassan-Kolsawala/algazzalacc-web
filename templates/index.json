@@ -120,6 +120,35 @@
         "padding_bottom": 60
       }
     },
+    "featured_collection_VeyKmR": {
+      "type": "featured-collection",
+      "name": "Air Compressor",
+      "settings": {
+        "collection": "air-compressors",
+        "products_to_show": 25,
+        "title": "Air Compressors",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 6,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "collection_list_G7kdxk": {
       "type": "collection-list",
       "blocks": {
@@ -418,35 +447,6 @@
         "padding_bottom": 36
       }
     },
-    "featured_collection_VeyKmR": {
-      "type": "featured-collection",
-      "name": "Air Compressor",
-      "settings": {
-        "collection": "air-compressors",
-        "products_to_show": 25,
-        "title": "Air Compressors",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 6,
-        "enable_desktop_slider": true,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "featured_collection_UFH8JQ": {
       "type": "featured-collection",
       "name": "Holders and Organizers",
@@ -480,10 +480,10 @@
   "order": [
     "ss_video_banner_gQDez4",
     "featured-collection-0",
+    "featured_collection_VeyKmR",
+    "featured_collection_UFH8JQ",
     "collection_list_G7kdxk",
     "collection_list_NpJ79N",
-    "collection_list_LQHbNP",
-    "featured_collection_VeyKmR",
-    "featured_collection_UFH8JQ"
+    "collection_list_LQHbNP"
   ]
 }
