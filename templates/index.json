@@ -449,7 +449,7 @@
     },
     "featured_collection_UFH8JQ": {
       "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+      "name": "Holders and Organizers",
       "settings": {
         "collection": "holders-and-organizers",
         "products_to_show": 25,
