@@ -94,6 +94,7 @@
     },
     "featured-collection-0": {
       "type": "featured-collection",
+      "name": "Body Support Cushions",
       "settings": {
         "collection": "body-support-cushions",
         "products_to_show": 25,
