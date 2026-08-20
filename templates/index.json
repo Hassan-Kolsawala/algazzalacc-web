@@ -325,12 +325,6 @@
     "collection_list_NpJ79N": {
       "type": "collection-list",
       "blocks": {
-        "featured_collection_BPymGz": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "exterior-led-bulbs"
-          }
-        },
         "featured_collection_CWe37x": {
           "type": "featured_collection",
           "settings": {
@@ -414,10 +408,15 @@
           "settings": {
             "collection": "tissue-covers"
           }
+        },
+        "featured_collection_G7Q6Th": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "safety-belts-and-clips"
+          }
         }
       },
       "block_order": [
-        "featured_collection_BPymGz",
         "featured_collection_CWe37x",
         "featured_collection_FiU4Cd",
         "featured_collection_XLEVG8",
@@ -431,7 +430,8 @@
         "featured_collection_njwQyM",
         "featured_collection_G7RCjz",
         "featured_collection_gximqx",
-        "featured_collection_CPV8ig"
+        "featured_collection_CPV8ig",
+        "featured_collection_G7Q6Th"
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
@@ -450,12 +450,6 @@
     "collection_list_LQHbNP": {
       "type": "collection-list",
       "blocks": {
-        "featured_collection_iXJxxC": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "safety-belts-and-clips"
-          }
-        },
         "featured_collection_g3caVd": {
           "type": "featured_collection",
           "settings": {
@@ -482,7 +476,6 @@
         }
       },
       "block_order": [
-        "featured_collection_iXJxxC",
         "featured_collection_g3caVd",
         "featured_collection_iGnHH6",
         "featured_collection_VgGVfr",
