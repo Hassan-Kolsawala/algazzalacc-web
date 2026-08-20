@@ -138,7 +138,7 @@
       "name": "Air Compressor",
       "settings": {
         "collection": "air-compressors",
-        "products_to_show": 25,
+        "products_to_show": 6,
         "title": "Air Compressors",
         "heading_size": "h1",
         "description": "",
@@ -156,7 +156,7 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
