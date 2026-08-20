@@ -103,7 +103,7 @@
       "name": "Body Support Cushions",
       "settings": {
         "collection": "body-support-cushions",
-        "products_to_show": 25,
+        "products_to_show": 6,
         "title": "Body Support Cushions",
         "heading_size": "h1",
         "description": "",
@@ -112,7 +112,7 @@
         "columns_desktop": 6,
         "enable_desktop_slider": true,
         "full_width": false,
-        "show_view_all": false,
+        "show_view_all": true,
         "view_all_style": "solid",
         "color_scheme": "scheme-1",
         "image_ratio": "square",
@@ -121,7 +121,7 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": true,
         "padding_top": 60,
         "padding_bottom": 60
@@ -173,7 +173,7 @@
       "name": "Holders and Organizers",
       "settings": {
         "collection": "holders-and-organizers",
-        "products_to_show": 25,
+        "products_to_show": 6,
         "title": "Holders and Organizers",
         "heading_size": "h1",
         "description": "",
@@ -191,7 +191,7 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
