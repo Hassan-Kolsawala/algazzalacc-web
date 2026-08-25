@@ -473,13 +473,20 @@
           "settings": {
             "collection": "wipers"
           }
+        },
+        "featured_collection_ztfy3f": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "brackets-for-automotive-lights"
+          }
         }
       },
       "block_order": [
         "featured_collection_g3caVd",
         "featured_collection_iGnHH6",
         "featured_collection_VgGVfr",
-        "featured_collection_WkEmEq"
+        "featured_collection_WkEmEq",
+        "featured_collection_ztfy3f"
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
