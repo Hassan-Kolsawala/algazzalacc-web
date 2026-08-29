@@ -135,7 +135,7 @@
         "show_description": false,
         "description_style": "body",
         "columns_desktop": 6,
-        "enable_desktop_slider": true,
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "solid",
