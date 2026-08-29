@@ -95,9 +95,10 @@
     "featured-collection-0": {
       "type": "featured-collection",
       "custom_css": [
-        ".page-width{max-width:none;width:100vw;margin-left:calc(50% - 50vw);padding:0}",
-        ".title-wrapper-with-link{padding:0 12px}",
-        "@media(max-width:749px){.slider__slide{width:40%!important;max-width:40%!important}}"
+        ".page-width {max-width: 100% !important; padding: 0 !important;}",
+        ".title,.collection__title,.title-wrapper {padding-left: 5rem !important; margin-left: 0 !important;}",
+        "slider-component {max-width: 100% !important; margin: 0 !important; padding: 0 2rem !important;}",
+        ".grid--peek.slider .grid__item:first-child {margin-left: 0 !important;}"
       ],
       "name": "Body Support Cushions",
       "settings": {
