@@ -160,12 +160,7 @@
     },
     "featured_collection_UFH8JQ": {
       "type": "featured-collection",
-      "custom_css": [
-        ".page-width {max-width: 100% !important; padding: 0 !important;}",
-        ".title,.collection__title,.title-wrapper {padding-left: 5rem !important; margin-left: 0 !important;}",
-        "slider-component {max-width: 100% !important; margin: 0 !important; padding: 0 2rem !important;}",
-        ".grid--peek.slider .grid__item:first-child {margin-left: 0 !important;}"
-      ],
+      "custom_css": [],
       "name": "Holders and Organizers",
       "settings": {
         "collection": "holders-and-organizers",
