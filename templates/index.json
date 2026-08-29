@@ -95,8 +95,8 @@
     "featured-collection-0": {
       "type": "featured-collection",
       "custom_css": [
-        ".page-width{max-width:100%!important;padding:0 1rem}",
-        ".title-wrapper{text-align:left!important}",
+        ".page-width,.grid-wrapper,.collection{max-width:100%!important;padding-left:1rem!important;padding-right:1rem!important;margin:0!important}",
+        ".title-wrapper{text-align:left!important;justify-content:flex-start!important}",
         "@media(max-width:749px){.slider__slide{width:40%!important;flex:0 0 40%!important}}"
       ],
       "name": "Body Support Cushions",
