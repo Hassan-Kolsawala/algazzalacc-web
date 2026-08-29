@@ -128,7 +128,7 @@
       "name": "Air Compressor",
       "settings": {
         "collection": "air-compressors",
-        "products_to_show": 25,
+        "products_to_show": 9,
         "title": "Air Compressors",
         "heading_size": "h1",
         "description": "",
@@ -158,7 +158,7 @@
       "name": "Holders and Organizers",
       "settings": {
         "collection": "holders-and-organizers",
-        "products_to_show": 25,
+        "products_to_show": 9,
         "title": "Holders and Organizers",
         "heading_size": "h1",
         "description": "",
