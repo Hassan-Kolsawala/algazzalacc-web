@@ -3617,39 +3617,4 @@ details-disclosure > details {
   }
 
 
- /* Left-align only the direct Add to Cart wrapper */
-.card__content .quick-add:has(form[action*="/cart/add"]),
-.card-information .quick-add:has(form[action*="/cart/add"]),
-.product-card .quick-add:has(form[action*="/cart/add"]) {
-  display: flex !important;
-  justify-content: flex-start !important;
-}
-
-/* Style ONLY the + / direct Add to Cart button into a circle */
-.quick-add form[action*="/cart/add"] button[type="submit"],
-.quick-add form[action*="/cart/add"] .quick-add__submit {
-  width: 44px !important;
-  height: 44px !important;
-  min-width: 44px !important;
-  min-height: 44px !important;
-  max-width: 44px !important;
-  border-radius: 50% !important;
-  padding: 0 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin-right: auto !important;
-  margin-left: 0 !important;
-}
-
-/* Optional: If using pill shape instead of circle, replace the width/height block above with: */
-/*
-.quick-add form[action*="/cart/add"] button[type="submit"] {
-  width: auto !important;
-  border-radius: 9999px !important;
-  padding: 8px 18px !important;
-  margin-right: auto !important;
-  margin-left: 0 !important;
-}
-*/
 
