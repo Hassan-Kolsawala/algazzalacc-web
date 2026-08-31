@@ -3616,3 +3616,27 @@ details-disclosure > details {
     word-break: break-word !important;
   }
 
+
+  /* Align wrapper to the left - shopify add to cart + sign button to left*/
+.card__content .quick-add,
+.card-information .quick-add {
+  display: flex !important;
+  justify-content: flex-start !important;
+}
+
+/* Perfect add to cart + sign button circle dimensions */
+.card__content .quick-add button,
+.card-information .quick-add button {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
