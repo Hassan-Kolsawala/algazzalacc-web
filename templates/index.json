@@ -435,6 +435,12 @@
     "collection_list_LQHbNP": {
       "type": "collection-list",
       "blocks": {
+        "featured_collection_UxGAkB": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "steering-locks"
+          }
+        },
         "featured_collection_PhRNiC": {
           "type": "featured_collection",
           "settings": {
@@ -479,6 +485,7 @@
         }
       },
       "block_order": [
+        "featured_collection_UxGAkB",
         "featured_collection_PhRNiC",
         "featured_collection_cPeth3",
         "featured_collection_g3caVd",
