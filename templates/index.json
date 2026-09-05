@@ -435,6 +435,18 @@
     "collection_list_LQHbNP": {
       "type": "collection-list",
       "blocks": {
+        "featured_collection_PhRNiC": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "sockets-and-cables"
+          }
+        },
+        "featured_collection_cPeth3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "miscellanious-tools-and-equipments"
+          }
+        },
         "featured_collection_g3caVd": {
           "type": "featured_collection",
           "settings": {
@@ -467,6 +479,8 @@
         }
       },
       "block_order": [
+        "featured_collection_PhRNiC",
+        "featured_collection_cPeth3",
         "featured_collection_g3caVd",
         "featured_collection_iGnHH6",
         "featured_collection_VgGVfr",
