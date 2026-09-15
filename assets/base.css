@@ -3617,31 +3617,4 @@ details-disclosure > details {
   }
 
 
-/* Ensure the parent icon container uses flex layout */
-.header__icons {
-  display: flex !important;
-  align-items: center !important;
-}
 
-/* 1. Put search bar first */
-.header__search,
-.header__icons details-modal,
-.header__icons .search-modal {
-  order: 1 !important;
-}
-
-/* 2. Put language/localization selector next */
-.header__localization,
-.header__icons localization-form,
-.header__icons .localization-selector {
-  order: 2 !important;
-}
-
-/* 3. Keep account and cart icons after */
-.header__icon--account {
-  order: 3 !important;
-}
-
-.header__icon--cart {
-  order: 4 !important;
-}
