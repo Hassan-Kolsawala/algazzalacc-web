@@ -3617,34 +3617,4 @@ details-disclosure > details {
   }
 
 
-/* Target the right-hand icons wrapper in Refresh */
-.header__icons {
-  display: flex !important;
-  align-items: center !important;
-}
 
-/* 1. Force the search bar container to the front */
-.header__icons details-modal.header__search,
-.header__icons .search-modal,
-.header__icons > .header__search {
-  order: 1 !important;
-  margin-right: 1.5rem !important;
-}
-
-/* 2. Position the language selector after the search bar */
-.header__icons .header__localization,
-.header__icons localization-form {
-  order: 2 !important;
-  margin-right: 1.5rem !important;
-}
-
-/* 3. Customer account icon */
-.header__icons .header__icon--account {
-  order: 3 !important;
-}
-
-/* 4. Cart icon */
-.header__icons #cart-icon-bubble,
-.header__icons .header__icon--cart {
-  order: 4 !important;
-}
