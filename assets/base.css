@@ -3616,25 +3616,38 @@ details-disclosure > details {
     word-break: break-word !important;
   }
 
-/* Expand search container and input in Refresh theme header */
+/* Force header grid columns to let search expand into the empty space */
 @media screen and (min-width: 990px) {
-  .header__search,
-  details-modal.header__search {
-    flex-grow: 1 !important;
-    max-width: 100% !important;
+  /* Allow the right section/icons block to take all remaining space */
+  .header.header--middle-left,
+  .header.header--top-left,
+  .header.header--top-center {
+    grid-template-columns: auto 1fr !important;
+  }
+
+  /* Target the right-side container (contains language, search, account, cart) */
+  .header__icons {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+  }
+
+  /* Make the search container expand across the gap */
+  .header__icons .header__search,
+  .header__icons details-modal.header__search {
+    flex: 1 1 auto !important;
     display: flex !important;
     justify-content: flex-end !important;
+    margin-right: 1.5rem !important;
   }
 
-  .header__search .search-modal__form,
-  .header__search form.search {
-    max-width: 650px !important; /* Adjust this value up or down to set maximum stretch */
+  /* Expand the form and the input field itself */
+  .header__icons .search-modal__form,
+  .header__icons form.search,
+  .header__icons .field {
     width: 100% !important;
-    margin-left: auto !important;
-  }
-
-  .header__search .field {
-    width: 100% !important;
+    max-width: 700px !important; /* Increase or decrease to control how far left it reaches */
   }
 }
 
