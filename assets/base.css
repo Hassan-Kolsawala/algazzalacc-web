@@ -3616,5 +3616,25 @@ details-disclosure > details {
     word-break: break-word !important;
   }
 
+/* Expand search container and input in Refresh theme header */
+@media screen and (min-width: 990px) {
+  .header__search,
+  details-modal.header__search {
+    flex-grow: 1 !important;
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+  }
 
+  .header__search .search-modal__form,
+  .header__search form.search {
+    max-width: 650px !important; /* Adjust this value up or down to set maximum stretch */
+    width: 100% !important;
+    margin-left: auto !important;
+  }
+
+  .header__search .field {
+    width: 100% !important;
+  }
+}
 
