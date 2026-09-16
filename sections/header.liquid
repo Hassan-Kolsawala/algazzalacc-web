@@ -267,13 +267,18 @@
     }
 
     /* Center and stretch the search container */
+    /* Lock alignment to the center of the logo/cart icon row */
     .desktop-search {
       position: absolute !important;
       left: 50% !important;
-      top: 50% !important;
-      transform: translate(-50%, -50%) !important;
+      top: 0 !important;
+      transform: translateX(-50%) !important;
+      height: 100% !important;
+      max-height: 90px !important; /* Matches the top icon/logo row height */
+      display: flex !important;
+      align-items: center !important;
       width: clamp(380px, 45vw, 650px) !important;
-      max-width: calc(100% - 360px) !important; /* Prevents overlap with logo and right icons */
+      max-width: calc(100% - 360px) !important;
       z-index: 3;
     }
 
