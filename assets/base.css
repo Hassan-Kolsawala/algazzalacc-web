@@ -3624,7 +3624,7 @@ details-disclosure > details {
 
   /* Center the search element horizontally across the top */
   .header-search,
-  .header .search-modal {
+  .header .Search-In-Modal {
     position: absolute !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
