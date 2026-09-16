@@ -3616,5 +3616,42 @@ details-disclosure > details {
     word-break: break-word !important;
   }
 
+@media screen and (min-width: 990px) {
+  /* Set relative positioning context on the header grid */
+  .header {
+    position: relative !important;
+  }
 
+  /* Center the search element horizontally across the top */
+  .header__search,
+  .header .search-modal {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 50% !important;
+    margin: 0 !important;
+    z-index: 4;
+  }
+
+  /* Expand input container width and scale */
+  .header__search .search-modal__form,
+  .header__search .search {
+    max-width: 520px !important;
+    width: 38vw !important;
+  }
+
+  /* Enlarge the input box styling */
+  .header__search .search__input {
+    height: 4.8rem !important;
+    font-size: 1.5rem !important;
+    padding-left: 2rem !important;
+    border-radius: 9999px !important; /* Retains pill-shape */
+  }
+
+  /* Re-align the search submit icon */
+  .header__search .search__button {
+    height: 4.8rem !important;
+    width: 4.8rem !important;
+  }
+}
 
