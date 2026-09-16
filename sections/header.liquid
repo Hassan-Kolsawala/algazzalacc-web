@@ -247,39 +247,42 @@
           </localization-form>
         {%- endif -%}
       </div>
-           <style>
+ <style>
   :root {
     --inputs-radius: 28px !important;
   }
 
+  /* Default mobile & tablet state (under 990px) */
   .mobile-search {
-    display: none;
-  }
-
-  .desktop-search {
     display: block;
   }
 
-  @media only screen and (min-width: 769px) {
-    /* Header layout adjustments to make room */
-    .header {
-      position: relative !important;
+  .desktop-search {
+    display: none;
+  }
+
+  /* Desktop layout (990px and wider) */
+  @media only screen and (min-width: 990px) {
+    .mobile-search {
+      display: none !important;
     }
 
-    /* Center and stretch the search container */
-    /* Lock alignment to the center of the logo/cart icon row */
     .desktop-search {
+      display: flex !important;
       position: absolute !important;
       left: 50% !important;
       top: 0 !important;
       transform: translateX(-50%) !important;
       height: 100% !important;
-      max-height: 165px !important; /* Matches the top icon/logo row height */
-      display: flex !important;
+      max-height: 165px !important;
       align-items: center !important;
-      width: clamp(380px, 45vw, 650px) !important;
-      max-width: calc(100% - 360px) !important;
+      width: clamp(300px, 38vw, 650px) !important;
+      max-width: calc(100% - 440px) !important; /* Preserves clear clearance for logo and icons */
       z-index: 3;
+    }
+
+    .header {
+      position: relative !important;
     }
 
     .desktop-search predictive-search,
@@ -309,14 +312,14 @@
       transform: translateY(-50%) !important;
     }
 
-    /* Center search/reset buttons inside the enlarged input */
+    /* Center search/reset buttons inside the input */
     .desktop-search .field__button {
       height: 4.8rem !important;
       width: 4.8rem !important;
       right: 0.4rem !important;
     }
 
-    /* Align dropdown search results precisely below the bar */
+    /* Predictive search dropdown alignment */
     predictive-search[open] .predictive-search {
       position: absolute !important;
       top: calc(100% + 0.8rem) !important;
@@ -327,16 +330,6 @@
       border-radius: 16px !important;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
       overflow: hidden;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    .mobile-search {
-      display: block;
-    }
-
-    .desktop-search {
-      display: none;
     }
   }
 </style>
