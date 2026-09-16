@@ -247,38 +247,94 @@
           </localization-form>
         {%- endif -%}
       </div>
-            <style>
-        :root {
-            --inputs-radius: 20px !important;
-        }
+           <style>
+  :root {
+    --inputs-radius: 28px !important;
+  }
 
-        .mobile-search {
-          display: none;
-        }
+  .mobile-search {
+    display: none;
+  }
 
-        .desktop-search {
-          display: block;
-        }
+  .desktop-search {
+    display: block;
+  }
 
-        @media only screen and (min-width: 769px) {
-          predictive-search[open] .predictive-search {
-                position: absolute;
-                min-width: 768px;
-                left: -768px;
-                transform: translateX(50%);
-          }          
-        }
+  @media only screen and (min-width: 769px) {
+    /* Header layout adjustments to make room */
+    .header {
+      position: relative !important;
+    }
 
-        @media only screen and (max-width: 768px) {
-          .mobile-search {
-            display: block;
-          }
+    /* Center and stretch the search container */
+    .desktop-search {
+      position: absolute !important;
+      left: 50% !important;
+      top: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: clamp(380px, 45vw, 650px) !important;
+      max-width: calc(100% - 360px) !important; /* Prevents overlap with logo and right icons */
+      z-index: 3;
+    }
 
-          .desktop-search {
-            display: none;
-          }
-        }
-      </style>
+    .desktop-search predictive-search,
+    .desktop-search search-form,
+    .desktop-search form.search {
+      width: 100% !important;
+      max-width: 100% !important;
+      position: relative;
+    }
+
+    /* Enlarge the input box */
+    .desktop-search .field {
+      height: 4.8rem !important;
+    }
+
+    .desktop-search .search__input.field__input {
+      height: 4.8rem !important;
+      font-size: 1.5rem !important;
+      padding-left: 2.2rem !important;
+      padding-right: 5rem !important;
+      border-radius: 9999px !important;
+    }
+
+    .desktop-search .field__label {
+      left: 2.2rem !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+
+    /* Center search/reset buttons inside the enlarged input */
+    .desktop-search .field__button {
+      height: 4.8rem !important;
+      width: 4.8rem !important;
+      right: 0.4rem !important;
+    }
+
+    /* Align dropdown search results precisely below the bar */
+    predictive-search[open] .predictive-search {
+      position: absolute !important;
+      top: calc(100% + 0.8rem) !important;
+      left: 0 !important;
+      width: 100% !important;
+      min-width: 100% !important;
+      transform: none !important;
+      border-radius: 16px !important;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+      overflow: hidden;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .mobile-search {
+      display: block;
+    }
+
+    .desktop-search {
+      display: none;
+    }
+  }
+</style>
       <div class="mobile-search">
         {% render 'header-search', input_id: 'Search-In-Modal' %}
       </div>
