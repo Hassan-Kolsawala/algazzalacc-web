@@ -813,3 +813,67 @@ How To Have A Search Bar Instead Of Search Icon In Shopify and also gemini css c
   ]
 }
 {% endschema %}
+
+<!-- Auto-typing search bar placeholder -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const phrases = [
+      'steering knob...',
+      'leather seat covers...',
+      'floor mats...',
+      'car air freshener...',
+      'LED headlights...'
+    ];
+
+    const prefix = 'Search for ';
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 90;
+    const deletingSpeed = 45;
+    const holdDelay = 1800; // Time to pause when word is fully typed
+
+    function getSearchInputs() {
+      // Targets standard Shopify search and predictive search input fields
+      return document.querySelectorAll('input[type="search"], input[name="q"], .search__input');
+    }
+
+    function typeEffect() {
+      const currentPhrase = phrases[phraseIndex];
+      const inputs = getSearchInputs();
+
+      if (inputs.length === 0) return;
+
+      let displayText = prefix;
+      if (isDeleting) {
+        displayText += currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        displayText += currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      inputs.forEach((input) => {
+        // Only animate if the user hasn't typed anything and is not actively typing
+        if (input.value === '' && document.activeElement !== input) {
+          input.setAttribute('placeholder', displayText);
+        }
+      });
+
+      let currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        currentSpeed = holdDelay;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        currentSpeed = 400; // Pause before starting next phrase
+      }
+
+      setTimeout(typeEffect, currentSpeed);
+    }
+
+    typeEffect();
+  });
+</script>
