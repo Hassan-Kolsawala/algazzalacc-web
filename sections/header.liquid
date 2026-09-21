@@ -337,6 +337,9 @@ How To Have A Search Bar Instead Of Search Icon In Shopify and also gemini css c
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
       overflow: hidden;
     }
+
+
+    /*  below code is for enabling auto type predictive search in search bar */
     /* 1. Force the placeholder to be fully visible */
     .desktop-search .search__input::-webkit-input-placeholder {
       opacity: 0.7 !important;
@@ -355,6 +358,7 @@ How To Have A Search Bar Instead Of Search Icon In Shopify and also gemini css c
     .desktop-search .field__label {
       display: none !important;
     }
+    /*  above code is for enabling auto type predictive search in search bar */
   }
 </style>
       <div class="mobile-search">
@@ -502,7 +506,7 @@ How To Have A Search Bar Instead Of Search Icon In Shopify and also gemini css c
 <!-- Designed by OnHOW YT 
 above code is for - How To Have A Search Bar Instead Of Search Icon In Shopify and also gemini css code tweaks to enlarge and postion search bar in center -->
 {% endcomment %}
- 
+
       {%- if shop.customer_accounts_enabled -%}
         <a
           href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
