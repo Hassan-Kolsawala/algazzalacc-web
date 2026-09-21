@@ -337,6 +337,24 @@ How To Have A Search Bar Instead Of Search Icon In Shopify and also gemini css c
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
       overflow: hidden;
     }
+    /* 1. Force the placeholder to be fully visible */
+    .desktop-search .search__input::-webkit-input-placeholder {
+      opacity: 0.7 !important;
+      color: #ffffff !important; /* Change color if your header background isn't dark */
+    }
+    .desktop-search .search__input::-moz-placeholder {
+      opacity: 0.7 !important;
+      color: #ffffff !important;
+    }
+    .desktop-search .search__input::placeholder {
+      opacity: 0.7 !important;
+      color: #ffffff !important;
+    }
+
+    /* 2. Hide the static default label so it doesn't mask the typewriter */
+    .desktop-search .field__label {
+      display: none !important;
+    }
   }
 </style>
       <div class="mobile-search">
