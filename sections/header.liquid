@@ -402,7 +402,75 @@ How To Have A Search Bar Instead Of Search Icon In Shopify and also gemini css c
           </search-form>
         {%- endif -%}
       </div>
-     
+     <script>
+  (function initTypewriterSearch() {
+    function start() {
+      const searchInput = document.querySelector('.desktop-search .search__input');
+      if (!searchInput) {
+        // Retry shortly if the theme DOM isn't ready yet
+        setTimeout(start, 100);
+        return;
+      }
+
+      const suggestions = [
+        "steering knob...",
+        "car air fresheners...",
+        "seat covers...",
+        "keychains...",
+        "LED lights..."
+      ];
+
+      let wordIdx = 0;
+      let charIdx = 0;
+      let isDeleting = false;
+      const basePrefix = "Search for ";
+      const typeSpeed = 90;
+      const deleteSpeed = 45;
+      const holdTime = 1800;
+
+      function tick() {
+        // Pause while the user focuses or types
+        if (document.activeElement === searchInput || searchInput.value.length > 0) {
+          setTimeout(tick, 500);
+          return;
+        }
+
+        const currentWord = suggestions[wordIdx];
+
+        if (isDeleting) {
+          charIdx--;
+        } else {
+          charIdx++;
+        }
+
+        const text = basePrefix + currentWord.substring(0, charIdx);
+        searchInput.placeholder = text;
+        searchInput.setAttribute('placeholder', text);
+
+        let delay = isDeleting ? deleteSpeed : typeSpeed;
+
+        if (!isDeleting && charIdx === currentWord.length) {
+          delay = holdTime;
+          isDeleting = true;
+        } else if (isDeleting && charIdx === 0) {
+          isDeleting = false;
+          wordIdx = (wordIdx + 1) % suggestions.length;
+          delay = 400;
+        }
+
+        setTimeout(tick, delay);
+      }
+
+      tick();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', start);
+    } else {
+      start();
+    }
+  })();
+</script>
 {% comment %}
 <!-- Designed by OnHOW YT 
 How To Have A Search Bar Instead Of Search Icon In Shopify and also gemini css code tweaks to enlarge and postion search bar in center -->
