@@ -77,6 +77,12 @@
           "settings": {
             "text_style": "subtitle"
           }
+        },
+        "custom_liquid_akFr3J": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product-payment-icons\">\n  <span class=\"visually-hidden\">{{ 'sections.footer.payment' | t }}</span>\n  <ul class=\"list list-payment\" role=\"list\">\n    {%- for type in shop.enabled_payment_types -%}\n      <li class=\"list-payment__item\">\n        {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}\n      </li>\n    {%- endfor -%}\n  </ul>\n</div>\n\n<style>\n  .product-payment-icons {\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n  }\n  .product-payment-icons .list-payment {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 0.8rem;\n    padding-left: 0;\n    margin: 0;\n    list-style: none;\n    align-items: center;\n  }\n  .product-payment-icons .list-payment__item {\n    display: inline-flex;\n    align-items: center;\n  }\n  .product-payment-icons .list-payment__item svg {\n    width: 38px;\n    height: auto;\n  }\n</style>"
+          }
         }
       },
       "block_order": [
@@ -91,7 +97,8 @@
         "buy_buttons",
         "description",
         "share",
-        "sku_6wQP3V"
+        "sku_6wQP3V",
+        "custom_liquid_akFr3J"
       ],
       "settings": {
         "enable_sticky_info": true,
