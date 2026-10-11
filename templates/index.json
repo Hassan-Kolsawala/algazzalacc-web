@@ -435,6 +435,18 @@
     "collection_list_LQHbNP": {
       "type": "collection-list",
       "blocks": {
+        "featured_collection_kXGVGr": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "camping-and-outdoor-accessories"
+          }
+        },
+        "featured_collection_4HPVHx": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "trash-cans-and-bins"
+          }
+        },
         "featured_collection_UxGAkB": {
           "type": "featured_collection",
           "settings": {
@@ -485,6 +497,8 @@
         }
       },
       "block_order": [
+        "featured_collection_kXGVGr",
+        "featured_collection_4HPVHx",
         "featured_collection_UxGAkB",
         "featured_collection_PhRNiC",
         "featured_collection_cPeth3",
