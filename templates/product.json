@@ -45,12 +45,6 @@
             "swatch_shape": "circle"
           }
         },
-        "custom_liquid_QPJTiR": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<div id=\"variant-desc-{{ section.id }}\" class=\"rte\">\n  {{ product.selected_or_first_available_variant.metafields.custom.variant_description | metafield_tag }}\n</div>\n\n<script type=\"application/json\" id=\"variant-desc-data-{{ section.id }}\">\n{\n{% for v in product.variants %}\n  \"{{ v.id }}\": {{ v.metafields.custom.variant_description | metafield_tag | json }}{% unless forloop.last %},{% endunless %}\n{% endfor %}\n}\n</script>\n\n<script>\n(function () {\n  const container = document.getElementById('variant-desc-{{ section.id }}');\n  const dataEl = document.getElementById('variant-desc-data-{{ section.id }}');\n\n  if (!container || !dataEl) return;\n\n  let variantMap = {};\n  try {\n    variantMap = JSON.parse(dataEl.textContent);\n  } catch (e) {\n    console.error('Variant description JSON error', e);\n    return;\n  }\n\n  function getSelectedVariantId() {\n    const form =\n      container.closest('section')?.querySelector('form[action*=\"/cart/add\"]') ||\n      document.querySelector('form[action*=\"/cart/add\"]');\n\n    const idInput = form?.querySelector('[name=\"id\"]');\n    return idInput?.value || null;\n  }\n\n  function updateVariantDescription() {\n    const variantId = getSelectedVariantId();\n    if (variantId && variantMap[variantId] !== undefined) {\n      container.innerHTML = variantMap[variantId] || '';\n    }\n  }\n\n  document.addEventListener('change', updateVariantDescription);\n  document.addEventListener('input', updateVariantDescription);\n\n  updateVariantDescription();\n})();\n</script>"
-          }
-        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
@@ -66,6 +60,12 @@
           "type": "custom_liquid",
           "settings": {
             "custom_liquid": "{%- assign manual_payment_types = 'apple_pay,visa,master,knet' | split: ',' -%}\n\n<div class=\"product-payment-icons\">\n  <ul class=\"list list-payment\" role=\"list\">\n    {%- for type in manual_payment_types -%}\n      <li class=\"list-payment__item\">\n        {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}\n      </li>\n    {%- endfor -%}\n  </ul>\n</div>\n\n<style>\n  .product-payment-icons {\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n  }\n  .product-payment-icons .list-payment {\n    justify-content: left;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 0.8rem;\n    padding-left: 0;\n    margin: 0;\n    list-style: none;\n    align-items: center;\n  }\n  .product-payment-icons .list-payment__item svg {\n    width: 38px;\n    height: auto;\n    display: block;\n  }\n</style>"
+          }
+        },
+        "custom_liquid_QPJTiR": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div id=\"variant-desc-{{ section.id }}\" class=\"rte\">\n  {{ product.selected_or_first_available_variant.metafields.custom.variant_description | metafield_tag }}\n</div>\n\n<script type=\"application/json\" id=\"variant-desc-data-{{ section.id }}\">\n{\n{% for v in product.variants %}\n  \"{{ v.id }}\": {{ v.metafields.custom.variant_description | metafield_tag | json }}{% unless forloop.last %},{% endunless %}\n{% endfor %}\n}\n</script>\n\n<script>\n(function () {\n  const container = document.getElementById('variant-desc-{{ section.id }}');\n  const dataEl = document.getElementById('variant-desc-data-{{ section.id }}');\n\n  if (!container || !dataEl) return;\n\n  let variantMap = {};\n  try {\n    variantMap = JSON.parse(dataEl.textContent);\n  } catch (e) {\n    console.error('Variant description JSON error', e);\n    return;\n  }\n\n  function getSelectedVariantId() {\n    const form =\n      container.closest('section')?.querySelector('form[action*=\"/cart/add\"]') ||\n      document.querySelector('form[action*=\"/cart/add\"]');\n\n    const idInput = form?.querySelector('[name=\"id\"]');\n    return idInput?.value || null;\n  }\n\n  function updateVariantDescription() {\n    const variantId = getSelectedVariantId();\n    if (variantId && variantMap[variantId] !== undefined) {\n      container.innerHTML = variantMap[variantId] || '';\n    }\n  }\n\n  document.addEventListener('change', updateVariantDescription);\n  document.addEventListener('input', updateVariantDescription);\n\n  updateVariantDescription();\n})();\n</script>"
           }
         },
         "description": {
@@ -92,10 +92,10 @@
         "rating",
         "price",
         "variant_picker",
-        "custom_liquid_QPJTiR",
         "quantity_selector",
         "buy_buttons",
         "custom_liquid_akFr3J",
+        "custom_liquid_QPJTiR",
         "description",
         "share",
         "sku_6wQP3V"
