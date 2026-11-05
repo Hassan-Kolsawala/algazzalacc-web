@@ -3616,6 +3616,8 @@ details-disclosure > details {
     word-break: break-word !important;
   }
 
+  
+/* add-on-code gemini - Shopify Refresh Theme Loading Icon */
 /* Constrain and hide premature loading spinners */
 .loading-overlay__spinner,
 .loading__spinner,
@@ -3630,4 +3632,4 @@ svg.spinner,
 [hidden] {
   display: none !important;
 }
-
+/* add-on-code gemini - Shopify Refresh Theme Loading Icon */
