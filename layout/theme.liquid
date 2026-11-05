@@ -459,7 +459,18 @@
         const img = opener.querySelector('.media > img');
         if (!media || !img) return;
 
+        // Extract high-resolution URL from original CDN link
+        const baseSrc = img.src.split('?')[0];
+        const highResUrl = `${baseSrc}?width=2400`;
+
         opener.addEventListener('mouseenter', () => {
+          if (!img.dataset.origSrc) {
+            img.dataset.origSrc = img.src;
+            img.dataset.origSrcset = img.getAttribute('srcset') || '';
+          }
+          // Temporarily disable srcset to force high-res source
+          img.removeAttribute('srcset');
+          img.src = highResUrl;
           media.classList.add('is-hover-zoomed');
         });
 
@@ -477,18 +488,22 @@
         opener.addEventListener('mouseleave', () => {
           media.classList.remove('is-hover-zoomed');
           img.style.transformOrigin = 'center center';
+          
+          // Restore responsive sizing for mobile/performance
+          if (img.dataset.origSrcset) {
+            img.setAttribute('srcset', img.dataset.origSrcset);
+            img.src = img.dataset.origSrc;
+          }
         });
       });
     }
 
-    // Run on initial load
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', attachZoom);
     } else {
       attachZoom();
     }
 
-    // Re-bind when user switches product variants or slider items
     const gallery = document.querySelector('media-gallery');
     if (gallery) {
       const observer = new MutationObserver(() => attachZoom());
