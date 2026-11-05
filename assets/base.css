@@ -3634,27 +3634,34 @@ svg.spinner,
 }
 /* add-on-code gemini - Shopify Refresh Theme Loading Icon */
 
-/* Moving Focused Zoom for Product Media */
+/* --- Focused Inner Zoom for Refresh Theme --- */
 @media screen and (min-width: 990px) {
-  .product__media-item .product__media {
+  /* Prevent modal opener button from intercepting cursor tracking */
+  .product__media-wrapper .product__modal-opener {
+    cursor: crosshair !important;
+  }
+  
+  .product__media-wrapper .product__modal-opener::after,
+  .product__media-wrapper .product__media-toggle,
+  .product__media-wrapper .product__media-icon {
+    pointer-events: none !important;
+  }
+
+  /* Clip overflowing zoom */
+  .product__media-wrapper .media {
     overflow: hidden !important;
     position: relative !important;
-    cursor: crosshair;
   }
 
-  .product__media-item .product__media img {
-    transition: transform 0.08s ease-out;
+  /* Zoom transition */
+  .product__media-wrapper .media > img {
+    transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transform-origin: center center;
     will-change: transform, transform-origin;
-    pointer-events: none; /* Let container capture mouse events */
   }
 
-  .product__media-item .product__media.is-zoomed img {
-    transform: scale(2.2); /* Adjust magnification level here */
-  }
-
-  /* Optional: Hide the theme modal zoom icon if you prefer hover-only */
-  .product__media-item .product__modal-opener .product__media-icon {
-    display: none !important;
+  /* Active state */
+  .product__media-wrapper .media.is-hover-zoomed > img {
+    transform: scale(2.2) !important;
   }
 }
