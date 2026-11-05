@@ -445,57 +445,56 @@
 {% endcomment %}
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Only run on desktop screens
+  (function () {
     if (window.innerWidth < 990) return;
 
-    function initHoverZoom() {
-      const mediaWrappers = document.querySelectorAll(
-        '.product__media-item .product__media'
-      );
+    function attachZoom() {
+      const openers = document.querySelectorAll('.product__media-wrapper .product__modal-opener');
 
-      mediaWrappers.forEach((wrapper) => {
-        if (wrapper.dataset.zoomInitialized) return;
-        wrapper.dataset.zoomInitialized = 'true';
+      openers.forEach((opener) => {
+        if (opener.dataset.zoomReady === 'true') return;
+        opener.dataset.zoomReady = 'true';
 
-        const img = wrapper.querySelector('img');
-        if (!img) return;
+        const media = opener.querySelector('.media');
+        const img = opener.querySelector('.media > img');
+        if (!media || !img) return;
 
-        wrapper.addEventListener('mouseenter', () => {
-          wrapper.classList.add('is-zoomed');
+        opener.addEventListener('mouseenter', () => {
+          media.classList.add('is-hover-zoomed');
         });
 
-        wrapper.addEventListener('mousemove', (e) => {
-          const rect = wrapper.getBoundingClientRect();
+        opener.addEventListener('mousemove', (e) => {
+          const rect = opener.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
 
-          // Convert mouse position to percentage coordinates
           const xPercent = (x / rect.width) * 100;
           const yPercent = (y / rect.height) * 100;
 
           img.style.transformOrigin = `${xPercent}% ${yPercent}%`;
         });
 
-        wrapper.addEventListener('mouseleave', () => {
-          wrapper.classList.remove('is-zoomed');
+        opener.addEventListener('mouseleave', () => {
+          media.classList.remove('is-hover-zoomed');
           img.style.transformOrigin = 'center center';
         });
       });
     }
 
-    initHoverZoom();
-
-    // Re-initialize if variant selection changes the DOM image
-    const observer = new MutationObserver(() => {
-      initHoverZoom();
-    });
-
-    const productGallery = document.querySelector('media-gallery');
-    if (productGallery) {
-      observer.observe(productGallery, { childList: true, subtree: true });
+    // Run on initial load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', attachZoom);
+    } else {
+      attachZoom();
     }
-  });
+
+    // Re-bind when user switches product variants or slider items
+    const gallery = document.querySelector('media-gallery');
+    if (gallery) {
+      const observer = new MutationObserver(() => attachZoom());
+      observer.observe(gallery, { childList: true, subtree: true });
+    }
+  })();
 </script>
 
   </body>
