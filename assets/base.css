@@ -3616,5 +3616,18 @@ details-disclosure > details {
     word-break: break-word !important;
   }
 
+/* Constrain and hide premature loading spinners */
+.loading-overlay__spinner,
+.loading__spinner,
+svg.spinner,
+.spinner {
+  max-width: 30px;
+  max-height: 30px;
+}
 
+/* Keep spinners hidden unless actively loading */
+.hidden,
+[hidden] {
+  display: none !important;
+}
 
