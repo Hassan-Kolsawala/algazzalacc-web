@@ -3616,7 +3616,7 @@ details-disclosure > details {
     word-break: break-word !important;
   }
 
-  
+
 /* add-on-code gemini - Shopify Refresh Theme Loading Icon */
 /* Constrain and hide premature loading spinners */
 .loading-overlay__spinner,
@@ -3633,3 +3633,28 @@ svg.spinner,
   display: none !important;
 }
 /* add-on-code gemini - Shopify Refresh Theme Loading Icon */
+
+/* Moving Focused Zoom for Product Media */
+@media screen and (min-width: 990px) {
+  .product__media-item .product__media {
+    overflow: hidden !important;
+    position: relative !important;
+    cursor: crosshair;
+  }
+
+  .product__media-item .product__media img {
+    transition: transform 0.08s ease-out;
+    transform-origin: center center;
+    will-change: transform, transform-origin;
+    pointer-events: none; /* Let container capture mouse events */
+  }
+
+  .product__media-item .product__media.is-zoomed img {
+    transform: scale(2.2); /* Adjust magnification level here */
+  }
+
+  /* Optional: Hide the theme modal zoom icon if you prefer hover-only */
+  .product__media-item .product__modal-opener .product__media-icon {
+    display: none !important;
+  }
+}
