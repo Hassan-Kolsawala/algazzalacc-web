@@ -444,6 +444,59 @@
 <!-- connecting zoho salesIQ to shopify -->
 {% endcomment %}
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Only run on desktop screens
+    if (window.innerWidth < 990) return;
+
+    function initHoverZoom() {
+      const mediaWrappers = document.querySelectorAll(
+        '.product__media-item .product__media'
+      );
+
+      mediaWrappers.forEach((wrapper) => {
+        if (wrapper.dataset.zoomInitialized) return;
+        wrapper.dataset.zoomInitialized = 'true';
+
+        const img = wrapper.querySelector('img');
+        if (!img) return;
+
+        wrapper.addEventListener('mouseenter', () => {
+          wrapper.classList.add('is-zoomed');
+        });
+
+        wrapper.addEventListener('mousemove', (e) => {
+          const rect = wrapper.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          // Convert mouse position to percentage coordinates
+          const xPercent = (x / rect.width) * 100;
+          const yPercent = (y / rect.height) * 100;
+
+          img.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+        });
+
+        wrapper.addEventListener('mouseleave', () => {
+          wrapper.classList.remove('is-zoomed');
+          img.style.transformOrigin = 'center center';
+        });
+      });
+    }
+
+    initHoverZoom();
+
+    // Re-initialize if variant selection changes the DOM image
+    const observer = new MutationObserver(() => {
+      initHoverZoom();
+    });
+
+    const productGallery = document.querySelector('media-gallery');
+    if (productGallery) {
+      observer.observe(productGallery, { childList: true, subtree: true });
+    }
+  });
+</script>
 
   </body>
 </html>
