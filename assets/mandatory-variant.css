@@ -1,0 +1,106 @@
+
+/* Mandatory variant selection — Refresh theme */
+
+/* Required label */
+.mvs-required {
+  color: #bf2727;
+  font-size: 0.9em;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+/* Guidance text */
+.mvs-hint {
+  color: #686868;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 6px 0 16px;
+}
+
+/* Error message */
+.mvs-hint-error {
+  color: #bf2727;
+  font-weight: 700;
+}
+
+/* Highlight missing variant option */
+.product-form__input.mvs-error {
+  outline: 2px solid #d44848;
+  outline-offset: 5px;
+  border-radius: 5px;
+  animation: mvs-pulse 0.45s ease-in-out;
+}
+
+@keyframes mvs-pulse {
+  0%, 100% {
+    outline-width: 2px;
+  }
+
+  50% {
+    outline-width: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-form__input.mvs-error {
+    animation: none;
+  }
+}
+
+/* Add to cart guidance */
+.product-form__buttons > .mvs-add-gate {
+  display: none !important;
+}
+
+.product-form__buttons.mvs-add-locked >
+.product-form__submit:not(.mvs-add-gate) {
+  display: none !important;
+}
+
+.product-form__buttons.mvs-add-locked >
+.mvs-add-gate {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Buy It Now guidance */
+.shopify-payment-button.mvs-buy-locked {
+  position: relative !important;
+  min-height: 44px;
+}
+
+.shopify-payment-button.mvs-buy-locked >
+:not(.mvs-buy-gate) {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.shopify-payment-button > .mvs-buy-gate {
+  display: none !important;
+}
+
+.shopify-payment-button.mvs-buy-locked >
+.mvs-buy-gate {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  inset: 0;
+  z-index: 9999;
+
+  width: 100%;
+  min-height: 44px;
+  padding: 12px 16px;
+
+  border: none;
+  border-radius: 4px;
+
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+
+  background: rgb(var(--color-button, 25, 25, 25));
+  color: rgb(var(--color-button-text, 255, 255, 255));
+}

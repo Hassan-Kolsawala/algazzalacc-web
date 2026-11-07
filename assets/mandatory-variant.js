@@ -1,218 +1,351 @@
 
-document.addEventListener('DOMContentLoaded', () => {
-  const states = new WeakMap();
-  const groupSelector =
-    'fieldset.product-form__input, .product-form__input--dropdown';
+(() => {
+  const GROUP = 'fieldset.product-form__input, .product-form__input--dropdown';
+  const store = new WeakMap();
 
-  function getRoot(picker) {
+  function rootOf(picker) {
     return picker.closest('product-info') ||
-      picker.closest('.product') ||
-      picker.closest('section');
+      picker.closest('.product') || picker.closest('section');
   }
 
-  function getState(picker) {
-    const root = getRoot(picker);
-    if (!states.has(root)) {
-      states.set(root, { selected: new Set() });
+  function stateOf(picker) {
+    const root = rootOf(picker);
+    if (!store.has(root)) {
+      store.set(root, {
+        chosen: new Set(),
+        attempted: false
+      });
     }
-    return states.get(root);
+    return store.get(root);
   }
 
-  function getGroups(picker) {
-    return Array.from(picker.querySelectorAll(groupSelector));
+  function groupsOf(picker) {
+    return [...picker.querySelectorAll(GROUP)];
   }
 
-  function isComplete(picker) {
-    const groups = getGroups(picker);
-    const state = getState(picker);
-    return groups.every((group, index) =>
-      state.selected.has(index)
-    );
+  function optionName(group) {
+    const label = group.querySelector('legend, .form__label');
+    if (!label) return 'an option';
+
+    const copy = label.cloneNode(true);
+    copy.querySelectorAll(
+      '[data-selected-value], .mvs-required'
+    ).forEach(el => el.remove());
+
+    return copy.textContent.trim().replace(/:$/, '') ||
+      'an option';
   }
 
-  function showPrompt(picker) {
-    const groups = getGroups(picker);
-    const state = getState(picker);
-
-    const missingIndex = groups.findIndex(
-      (group, index) => !state.selected.has(index)
-    );
-
-    const group = groups[missingIndex];
-    const label = group?.querySelector('legend, .form__label');
-    const name = label?.textContent.trim().replace(/:$/, '');
-
-    alert(
-      name
-        ? `Please select ${name} before proceeding.`
-        : 'Please select a product variant before proceeding.'
-    );
-
-    group?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
-    });
-    group?.querySelector('select, input[type="radio"]')?.focus();
+  function valid(picker) {
+    const groups = groupsOf(picker);
+    const state = stateOf(picker);
+    return groups.length > 0 &&
+      groups.every((_, i) => state.chosen.has(i));
   }
 
-  function sync() {
-    document.querySelectorAll('main variant-selects')
-      .forEach((picker) => {
-        const root = getRoot(picker);
-        if (!root || !root.querySelector('product-form')) return;
+  function initializeGroup(group, chosen) {
+    if (!group.dataset.mvsReady) {
+      group.dataset.mvsReady = '1';
 
-        const groups = getGroups(picker);
-        if (!groups.length) return;
+      const label = group.querySelector('legend, .form__label');
 
-        const state = getState(picker);
+      if (label && !label.querySelector('.mvs-required')) {
+        const mark = document.createElement('span');
+        mark.className = 'mvs-required';
+        mark.textContent = ' * Required';
+        label.appendChild(mark);
+      }
 
-        groups.forEach((group, index) => {
-          if (group.dataset.mandatoryReady) return;
-          group.dataset.mandatoryReady = 'true';
+      const hint = document.createElement('div');
+      hint.className = 'mvs-hint';
+      hint.setAttribute('role', 'status');
+      hint.setAttribute('aria-live', 'polite');
+      group.insertAdjacentElement('afterend', hint);
+    }
 
-          if (state.selected.has(index)) return;
-
-          group.querySelectorAll('input[type="radio"]')
-            .forEach((input) => {
-              input.checked = false;
-            });
-
-          const select = group.querySelector('select');
-          if (select) {
-            const option = document.createElement('option');
-            option.value = '';
-            option.textContent = 'Choose an option';
-            option.disabled = true;
-            select.prepend(option);
-            select.value = '';
-          }
+    if (!chosen) {
+      group.querySelectorAll('input[type="radio"]:checked')
+        .forEach(input => {
+          input.checked = false;
         });
 
-        const complete = isComplete(picker);
+      const select = group.querySelector('select');
 
-        root.querySelectorAll('.shopify-payment-button')
-          .forEach((payment) => {
-            let shield = payment.querySelector(
-              '.mandatory-variant-shield'
-            );
-
-            if (complete) {
-              shield?.remove();
-              return;
-            }
-
-            if (!shield) {
-              payment.style.position = 'relative';
-              shield = document.createElement('div');
-              shield.className = 'mandatory-variant-shield';
-              shield.setAttribute('role', 'button');
-              shield.setAttribute('tabindex', '0');
-              shield.setAttribute(
-                'aria-label',
-                'Select product options before buying'
-              );
-
-              Object.assign(shield.style, {
-                position: 'absolute',
-                inset: '0',
-                zIndex: '20',
-                cursor: 'pointer'
-              });
-
-              shield.addEventListener('click', (event) => {
-                event.preventDefault();
-                showPrompt(picker);
-              });
-
-              shield.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  event.preventDefault();
-                  showPrompt(picker);
-                }
-              });
-
-              payment.appendChild(shield);
-            }
-          });
-      });
-  }
-
-  function pickerFor(element) {
-    return Array.from(
-      document.querySelectorAll('main variant-selects')
-    ).find((picker) => getRoot(picker)?.contains(element));
-  }
-
-  document.addEventListener('click', (event) => {
-    const picker = event.target.closest('variant-selects');
-
-    if (picker) {
-      const group = event.target.closest(groupSelector);
-      if (group) {
-        const radio = event.target.closest(
-          'input[type="radio"]'
-        );
-        const label = event.target.closest('label');
-
-        if (radio || (label && group.querySelector('input[type="radio"]'))) {
-          getState(picker).selected.add(
-            getGroups(picker).indexOf(group)
+      if (select) {
+        if (![...select.options].some(
+          option => option.value === ''
+        )) {
+          const placeholder = new Option(
+            `Select ${optionName(group)}`,
+            '',
+            true,
+            true
           );
-          sync();
+          placeholder.disabled = true;
+          select.insertBefore(
+            placeholder,
+            select.firstChild
+          );
         }
+        select.value = '';
+      }
+
+      const selectedText = group.querySelector(
+        'legend [data-selected-value]'
+      );
+
+      if (selectedText &&
+          selectedText.textContent !== 'Choose') {
+        selectedText.textContent = 'Choose';
       }
     }
+  }
 
-    const addButton = event.target.closest(
+  function makeGate(
+    holder, original, className, label, onClick
+  ) {
+    let gate = holder.querySelector(
+      `.${className.split(' ')[0]}`
+    );
+
+    if (!gate) {
+      gate = document.createElement('button');
+      gate.type = 'button';
+      gate.className = className;
+      gate.textContent = label;
+      gate.addEventListener('click', onClick);
+      original.insertAdjacentElement('afterend', gate);
+    }
+
+    return gate;
+  }
+
+  function syncPicker(picker) {
+    const root = rootOf(picker);
+
+    if (!root || !root.querySelector('product-form')) {
+      return;
+    }
+
+    const state = stateOf(picker);
+    const groups = groupsOf(picker);
+
+    if (!groups.length) return;
+
+    groups.forEach((group, i) => {
+      initializeGroup(group, state.chosen.has(i));
+    });
+
+    const missing = groups.findIndex(
+      (_, i) => !state.chosen.has(i)
+    );
+
+    groups.forEach((group, i) => {
+      const hint = group.nextElementSibling;
+
+      if (!hint?.classList.contains('mvs-hint')) {
+        return;
+      }
+
+      const needsChoice = !state.chosen.has(i);
+      const error = state.attempted && i === missing;
+
+      group.classList.toggle('mvs-error', error);
+      hint.classList.toggle('mvs-hint-error', error);
+      hint.hidden = !needsChoice;
+
+      const message = error
+        ? `↑ Select ${optionName(group)} here before continuing.`
+        : `Choose ${optionName(group)} to continue`;
+
+      if (hint.textContent !== message) {
+        hint.textContent = message;
+      }
+    });
+
+    const complete = missing === -1;
+
+    // Add to cart button guidance
+    const add = root.querySelector(
       'product-form .product-form__submit'
     );
 
-    if (addButton) {
-      const productPicker = pickerFor(addButton);
+    if (add?.parentElement) {
+      const holder = add.parentElement;
 
-      if (productPicker && !isComplete(productPicker)) {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        showPrompt(productPicker);
+      makeGate(
+        holder,
+        add,
+        'mvs-add-gate product-form__submit button button--full-width button--primary',
+        'Add to cart',
+        () => guide(picker)
+      );
+
+      holder.classList.toggle(
+        'mvs-add-locked',
+        !complete
+      );
+    }
+
+    // Buy It Now button guidance
+    const payment = root.querySelector(
+      '.shopify-payment-button'
+    );
+
+    if (payment) {
+      if (!payment.querySelector('.mvs-buy-gate')) {
+        const gate = document.createElement('button');
+        gate.type = 'button';
+        gate.className = 'mvs-buy-gate';
+        gate.textContent = 'Buy it now';
+
+        gate.addEventListener(
+          'click',
+          () => guide(picker)
+        );
+
+        payment.appendChild(gate);
       }
+
+      payment.classList.toggle(
+        'mvs-buy-locked',
+        !complete
+      );
+    }
+  }
+
+  function guide(picker) {
+    const state = stateOf(picker);
+    state.attempted = true;
+
+    syncPicker(picker);
+
+    const groups = groupsOf(picker);
+    const missing = groups.find(
+      (_, i) => !state.chosen.has(i)
+    );
+
+    if (!missing) return;
+
+    missing.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+
+    const focusTarget = missing.querySelector(
+      'select, input[type="radio"]:not(:disabled)'
+    );
+
+    if (focusTarget) {
+      focusTarget.focus({ preventScroll: true });
+    }
+  }
+
+  function pickerFor(element) {
+    return [...document.querySelectorAll(
+      'main variant-selects'
+    )].find(
+      picker => rootOf(picker)?.contains(element)
+    );
+  }
+
+  // Detect manually selected variants
+  document.addEventListener('change', event => {
+    const picker = event.target.closest?.(
+      'variant-selects'
+    );
+
+    if (!picker) return;
+
+    const group = event.target.closest(GROUP);
+    const index = groupsOf(picker).indexOf(group);
+
+    if (index < 0) return;
+
+    const state = stateOf(picker);
+
+    if (event.target.value) {
+      state.chosen.add(index);
+    } else {
+      state.chosen.delete(index);
+    }
+
+    if (valid(picker)) {
+      state.attempted = false;
+    }
+
+    syncPicker(picker);
+  }, true);
+
+  // Block Add to Cart until a variant is chosen
+  document.addEventListener('click', event => {
+    const button = event.target.closest?.(
+      'product-form .product-form__submit:not(.mvs-add-gate)'
+    );
+
+    if (!button) return;
+
+    const picker = pickerFor(button);
+
+    if (picker && !valid(picker)) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      guide(picker);
     }
   }, true);
 
-  document.addEventListener('change', (event) => {
-    const picker = event.target.closest('variant-selects');
-    if (!picker) return;
-
-    const group = event.target.closest(groupSelector);
-    if (!group) return;
-
-    getState(picker).selected.add(
-      getGroups(picker).indexOf(group)
-    );
-
-    sync();
-  }, true);
-
-  document.addEventListener('submit', (event) => {
+  // Protect regular product form submission
+  document.addEventListener('submit', event => {
     if (!event.target.matches(
       'form[data-type="add-to-cart-form"]'
     )) return;
 
     const picker = pickerFor(event.target);
 
-    if (picker && !isComplete(picker)) {
+    if (picker && !valid(picker)) {
       event.preventDefault();
       event.stopImmediatePropagation();
-      showPrompt(picker);
+      guide(picker);
     }
   }, true);
 
-  const main = document.querySelector('main');
-  if (main) {
-    new MutationObserver(sync).observe(main, {
-      childList: true,
-      subtree: true
-    });
+  function syncAll() {
+    document.querySelectorAll(
+      'main variant-selects'
+    ).forEach(syncPicker);
   }
 
-  sync();
-});
+  function start() {
+    syncAll();
+
+    let queued = false;
+
+    const observer = new MutationObserver(() => {
+      if (queued) return;
+
+      queued = true;
+
+      requestAnimationFrame(() => {
+        queued = false;
+        syncAll();
+      });
+    });
+
+    observer.observe(
+      document.querySelector('main') || document.body,
+      {
+        childList: true,
+        subtree: true
+      }
+    );
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener(
+      'DOMContentLoaded',
+      start
+    );
+  } else {
+    start();
+  }
+})();
