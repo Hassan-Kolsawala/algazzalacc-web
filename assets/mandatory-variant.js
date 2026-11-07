@@ -314,6 +314,7 @@
 
   /* =========================================
      AUTOMATIC RESET AFTER EVERY PURCHASE
+     INCLUDING VISUAL WARNING RESET
      ========================================= */
 
   function startPurchase(picker, source) {
@@ -338,17 +339,24 @@
     // Clear the previous selection after
     // Shopify has started the purchase.
     state.resetTimer = setTimeout(() => {
+
       state.chosen.clear();
-      state.attempted = false;
+
+      // UPDATED:
+      // Show red highlight and mandatory
+      // selection message after every reset.
+      state.attempted = true;
+
       state.purchasePending = false;
       state.purchaseSource = null;
       state.resetTimer = null;
 
-      // Restore initial mandatory-selection
-      // state without reloading the page.
+      // Restore mandatory-selection state
+      // and display the red visual warning.
       if (picker.isConnected) {
         syncPicker(picker);
       }
+
     }, RESET_DELAY_MS);
   }
 
@@ -513,7 +521,12 @@
 
       state.resetTimer = null;
       state.chosen.clear();
-      state.attempted = false;
+
+      // UPDATED:
+      // Restore red box and warning
+      // after returning from checkout.
+      state.attempted = true;
+
       state.purchasePending = false;
       state.purchaseSource = null;
 
