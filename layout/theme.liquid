@@ -445,6 +445,9 @@
 {% endcomment %}
 
 
+{% if template.name == 'product' %}
+  <script src="{{ 'mandatory-variant.js' | asset_url }}" defer></script>
+{% endif %}
 
   </body>
 </html>
