@@ -308,9 +308,9 @@
     </script>
 
     
-{% if template.name == 'product' %}
+{% comment %}{% if template.name == 'product' %}
   {{ 'mandatory-variant.css' | asset_url | stylesheet_tag }}
-{% endif %}
+{% endif %}{% endcomment %}
 
   </head>
 
