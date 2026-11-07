@@ -3,9 +3,7 @@
   const GROUP =
     'fieldset.product-form__input, .product-form__input--dropdown';
 
-  // Reset after each purchase attempt.
   const RESET_DELAY_MS = 1200;
-
   const store = new WeakMap();
 
   function rootOf(picker) {
@@ -189,6 +187,8 @@
 
       const needsChoice = !state.chosen.has(i);
 
+      // Red highlight appears ONLY after
+      // the customer clicks a purchase button.
       const error =
         state.attempted && i === missing;
 
@@ -271,13 +271,16 @@
     }
   }
 
+  /* =========================================
+     SHOW WARNING ONLY WHEN BUTTON IS CLICKED
+     ========================================= */
+
   function guide(picker) {
     const state = stateOf(picker);
 
-    // Prevent another purchase while the
-    // previous purchase attempt is processing.
     if (state.purchasePending) return;
 
+    // Activate red highlight and message.
     state.attempted = true;
 
     syncPicker(picker);
@@ -313,8 +316,8 @@
   }
 
   /* =========================================
-     AUTOMATIC RESET AFTER EVERY PURCHASE
-     INCLUDING VISUAL WARNING RESET
+     RESET AFTER EVERY PURCHASE
+     DO NOT SHOW RED WARNING AUTOMATICALLY
      ========================================= */
 
   function startPurchase(picker, source) {
@@ -322,12 +325,10 @@
 
     const state = stateOf(picker);
 
-    // Lock both buttons immediately.
+    // Lock purchase buttons temporarily.
     state.purchasePending = true;
     state.purchaseSource = source;
 
-    // Allow Shopify to begin processing
-    // the currently selected variant.
     setTimeout(() => {
       if (picker.isConnected) {
         syncPicker(picker);
@@ -336,23 +337,21 @@
 
     clearTimeout(state.resetTimer);
 
-    // Clear the previous selection after
-    // Shopify has started the purchase.
     state.resetTimer = setTimeout(() => {
 
+      // Clear previous variant selection.
       state.chosen.clear();
 
-      // UPDATED:
-      // Show red highlight and mandatory
-      // selection message after every reset.
-      state.attempted = true;
+      // IMPORTANT FIX:
+      // Hide red warning after every reset.
+      // It will appear only on the next
+      // Add to Cart or Buy It Now click.
+      state.attempted = false;
 
       state.purchasePending = false;
       state.purchaseSource = null;
       state.resetTimer = null;
 
-      // Restore mandatory-selection state
-      // and display the red visual warning.
       if (picker.isConnected) {
         syncPicker(picker);
       }
@@ -389,6 +388,8 @@
         state.chosen.delete(index);
       }
 
+      // Remove red warning once all
+      // required variants are selected.
       if (valid(picker)) {
         state.attempted = false;
       }
@@ -399,7 +400,7 @@
   );
 
   /* =========================================
-     ADD TO CART + BUY IT NOW CLICK HANDLING
+     ADD TO CART + BUY IT NOW HANDLING
      ========================================= */
 
   document.addEventListener(
@@ -409,8 +410,6 @@
         'product-form .product-form__submit:not(.mvs-add-gate)'
       );
 
-      // Block original Add to Cart when
-      // options are not freshly selected.
       if (add) {
         const picker = pickerFor(add);
 
@@ -423,13 +422,10 @@
         return;
       }
 
-      // Our guidance button already has
-      // its own click handler.
       if (event.target.closest?.(
         '.mvs-buy-gate'
       )) return;
 
-      // Find Shopify accelerated checkout.
       const path = event.composedPath?.() || [];
 
       const payment =
@@ -455,7 +451,6 @@
         return;
       }
 
-      // Valid Buy It Now purchase attempt.
       startPurchase(picker, 'buy');
     },
     true
@@ -478,16 +473,11 @@
 
       const state = stateOf(picker);
 
-      // Buy It Now can submit this same form.
-      // Allow its already-authorized checkout
-      // to continue normally.
       if (
         state.purchasePending &&
         state.purchaseSource === 'buy'
       ) return;
 
-      // Refuse cart submission if the customer
-      // has not made a fresh selection.
       if (!valid(picker)) {
         event.preventDefault();
         event.stopImmediatePropagation();
@@ -495,7 +485,6 @@
         return;
       }
 
-      // Valid Add to Cart purchase attempt.
       startPurchase(picker, 'add');
     },
     true
@@ -522,10 +511,9 @@
       state.resetTimer = null;
       state.chosen.clear();
 
-      // UPDATED:
-      // Restore red box and warning
-      // after returning from checkout.
-      state.attempted = true;
+      // Do not automatically show warning
+      // when returning from checkout.
+      state.attempted = false;
 
       state.purchasePending = false;
       state.purchaseSource = null;
@@ -534,8 +522,6 @@
     });
   }
 
-  // Require selection again when customers
-  // return using browser Back navigation.
   window.addEventListener(
     'pageshow',
     event => {
