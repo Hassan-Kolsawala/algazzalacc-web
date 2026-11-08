@@ -120,7 +120,7 @@
   background: transparent !important;
   color: rgb(var(--color-secondary-button-text, 18, 18, 18)) !important;
   border: 1px solid currentColor !important;
-  border-radius: 5px !important;
+  border-radius: 20px !important;
   box-shadow: none !important;
 }
 
@@ -131,7 +131,7 @@
 .product-form__buttons .mvs-add-gate::before,
 .product-form__buttons .mvs-add-gate::after {
   box-shadow: none !important;
-  border-radius: 5px !important;
+  border-radius: 20px !important;
 }
 
 /* 2. BUY IT NOW — ROUNDED CORNERS */
@@ -139,18 +139,18 @@
 /* Original Shopify accelerated checkout */
 
 shopify-accelerated-checkout {
-  --shopify-accelerated-checkout-button-border-radius: 5px;
+  --shopify-accelerated-checkout-button-border-radius: 20px;
 }
 
 /* Mandatory-selection Buy It Now button */
 
 .shopify-payment-button > .mvs-buy-gate,
 .shopify-payment-button.mvs-buy-locked > .mvs-buy-gate {
-  border-radius: 5px !important;
+  border-radius: 20px !important;
 }
 
 /* Keep button container corners consistent */
 
 .shopify-payment-button {
-  border-radius: 5px;
+  border-radius: 20px;
 }
