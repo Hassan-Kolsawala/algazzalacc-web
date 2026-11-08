@@ -62,29 +62,55 @@
       allChosen(picker);
   }
 
-  function initializeGroup(group, chosen) {
-    if (!group.dataset.mvsReady) {
-      group.dataset.mvsReady = '1';
+  /* =========================================
+     ENSURE VARIANT LABEL AND WARNING EXIST
+     ========================================= */
 
-      const label = group.querySelector(
-        'legend, .form__label'
+  function ensureGroup(group, chosen) {
+    const label = group.querySelector(
+      'legend, .form__label'
+    );
+
+    // Restore required label if Shopify
+    // has updated the product section.
+    if (
+      label &&
+      !label.querySelector('.mvs-required')
+    ) {
+      const required = document.createElement(
+        'span'
       );
 
-      if (label && !label.querySelector(
-        '.mvs-required'
-      )) {
-        const mark = document.createElement('span');
-        mark.className = 'mvs-required';
-        mark.textContent = ' * Required';
-        label.appendChild(mark);
-      }
+      required.className = 'mvs-required';
+      required.textContent = ' * Required';
 
-      const hint = document.createElement('div');
+      label.appendChild(required);
+    }
+
+    // IMPORTANT FIX:
+    // Check the warning element every time,
+    // not just when the page first loads.
+    let hint = group.nextElementSibling;
+
+    if (!hint?.classList.contains('mvs-hint')) {
+      hint = document.createElement('div');
+
       hint.className = 'mvs-hint';
-      hint.setAttribute('role', 'status');
-      hint.setAttribute('aria-live', 'polite');
 
-      group.insertAdjacentElement('afterend', hint);
+      hint.setAttribute(
+        'role',
+        'status'
+      );
+
+      hint.setAttribute(
+        'aria-live',
+        'polite'
+      );
+
+      group.insertAdjacentElement(
+        'afterend',
+        hint
+      );
     }
 
     if (!chosen) {
@@ -118,33 +144,43 @@
         select.value = '';
       }
 
-      const selectedText = group.querySelector(
+      const chosenText = group.querySelector(
         'legend [data-selected-value]'
       );
 
       if (
-        selectedText &&
-        selectedText.textContent !== 'Choose'
+        chosenText &&
+        chosenText.textContent !== 'Choose'
       ) {
-        selectedText.textContent = 'Choose';
+        chosenText.textContent = 'Choose';
       }
     }
+
+    return hint;
   }
 
-  function makeGate(
-    holder, original, className, label, onClick
+  /* =========================================
+     PURCHASE BUTTON GUIDANCE
+     ========================================= */
+
+  function ensureGate(
+    holder,
+    original,
+    className,
+    label
   ) {
+    const singleClass = className.split(' ')[0];
+
     let gate = holder.querySelector(
-      `.${className.split(' ')[0]}`
+      `.${singleClass}`
     );
 
     if (!gate) {
       gate = document.createElement('button');
+
       gate.type = 'button';
       gate.className = className;
       gate.textContent = label;
-
-      gate.addEventListener('click', onClick);
 
       original.insertAdjacentElement(
         'afterend',
@@ -158,37 +194,31 @@
   function syncPicker(picker) {
     const root = rootOf(picker);
 
-    if (!root || !root.querySelector(
-      'product-form'
-    )) return;
+    if (
+      !root ||
+      !root.querySelector('product-form')
+    ) return;
 
     const state = stateOf(picker);
     const groups = groupsOf(picker);
 
     if (!groups.length) return;
 
-    groups.forEach((group, i) => {
-      initializeGroup(
-        group,
-        state.chosen.has(i)
-      );
-    });
-
     const missing = groups.findIndex(
       (_, i) => !state.chosen.has(i)
     );
 
     groups.forEach((group, i) => {
-      const hint = group.nextElementSibling;
+      const hint = ensureGroup(
+        group,
+        state.chosen.has(i)
+      );
 
-      if (!hint?.classList.contains(
-        'mvs-hint'
-      )) return;
+      const needsChoice =
+        !state.chosen.has(i);
 
-      const needsChoice = !state.chosen.has(i);
-
-      // Red highlight appears ONLY after
-      // the customer clicks a purchase button.
+      // Show red warning only after an
+      // invalid purchase-button click.
       const error =
         state.attempted && i === missing;
 
@@ -217,20 +247,19 @@
       missing === -1 &&
       !state.purchasePending;
 
-    // ADD TO CART BUTTON
+    // ADD TO CART
     const add = root.querySelector(
-      'product-form .product-form__submit'
+      'product-form .product-form__submit:not(.mvs-add-gate)'
     );
 
     if (add?.parentElement) {
       const holder = add.parentElement;
 
-      makeGate(
+      ensureGate(
         holder,
         add,
         'mvs-add-gate product-form__submit button button--full-width button--primary',
-        'Add to cart',
-        () => guide(picker)
+        'Add to cart'
       );
 
       holder.classList.toggle(
@@ -239,7 +268,7 @@
       );
     }
 
-    // BUY IT NOW BUTTON
+    // BUY IT NOW
     const payment = root.querySelector(
       '.shopify-payment-button'
     );
@@ -256,11 +285,6 @@
         gate.className = 'mvs-buy-gate';
         gate.textContent = 'Buy it now';
 
-        gate.addEventListener(
-          'click',
-          () => guide(picker)
-        );
-
         payment.appendChild(gate);
       }
 
@@ -272,7 +296,7 @@
   }
 
   /* =========================================
-     SHOW WARNING ONLY WHEN BUTTON IS CLICKED
+     SHOW RED WARNING ON EVERY INVALID CLICK
      ========================================= */
 
   function guide(picker) {
@@ -280,9 +304,10 @@
 
     if (state.purchasePending) return;
 
-    // Activate red highlight and message.
+    // Activate warning for THIS click.
     state.attempted = true;
 
+    // Rebuild/refresh warning if necessary.
     syncPicker(picker);
 
     const missing = groupsOf(picker).find(
@@ -317,7 +342,6 @@
 
   /* =========================================
      RESET AFTER EVERY PURCHASE
-     DO NOT SHOW RED WARNING AUTOMATICALLY
      ========================================= */
 
   function startPurchase(picker, source) {
@@ -325,7 +349,6 @@
 
     const state = stateOf(picker);
 
-    // Lock purchase buttons temporarily.
     state.purchasePending = true;
     state.purchaseSource = source;
 
@@ -338,14 +361,13 @@
     clearTimeout(state.resetTimer);
 
     state.resetTimer = setTimeout(() => {
-
-      // Clear previous variant selection.
+      // Require a new selection.
       state.chosen.clear();
 
-      // IMPORTANT FIX:
-      // Hide red warning after every reset.
-      // It will appear only on the next
-      // Add to Cart or Buy It Now click.
+      // IMPORTANT:
+      // Reset warning to hidden.
+      // The next invalid button click will
+      // activate it again.
       state.attempted = false;
 
       state.purchasePending = false;
@@ -355,7 +377,6 @@
       if (picker.isConnected) {
         syncPicker(picker);
       }
-
     }, RESET_DELAY_MS);
   }
 
@@ -372,7 +393,9 @@
 
       if (!picker) return;
 
-      const group = event.target.closest(GROUP);
+      const group = event.target.closest(
+        GROUP
+      );
 
       const index = groupsOf(picker).indexOf(
         group
@@ -388,8 +411,6 @@
         state.chosen.delete(index);
       }
 
-      // Remove red warning once all
-      // required variants are selected.
       if (valid(picker)) {
         state.attempted = false;
       }
@@ -400,12 +421,33 @@
   );
 
   /* =========================================
-     ADD TO CART + BUY IT NOW HANDLING
+     HANDLE EVERY ADD TO CART / BUY NOW CLICK
      ========================================= */
 
+  // Delegated listener keeps working even
+  // if Shopify recreates purchase buttons.
   document.addEventListener(
     'click',
     event => {
+      const guideButton = event.target.closest?.(
+        '.mvs-add-gate, .mvs-buy-gate'
+      );
+
+      // CUSTOMER CLICKS A LOCKED BUTTON
+      if (guideButton) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        const picker = pickerFor(guideButton);
+
+        if (picker) {
+          guide(picker);
+        }
+
+        return;
+      }
+
+      // ORIGINAL ADD TO CART BUTTON
       const add = event.target.closest?.(
         'product-form .product-form__submit:not(.mvs-add-gate)'
       );
@@ -416,16 +458,14 @@
         if (picker && !valid(picker)) {
           event.preventDefault();
           event.stopImmediatePropagation();
+
           guide(picker);
         }
 
         return;
       }
 
-      if (event.target.closest?.(
-        '.mvs-buy-gate'
-      )) return;
-
+      // ORIGINAL BUY IT NOW BUTTON
       const path = event.composedPath?.() || [];
 
       const payment =
@@ -447,6 +487,7 @@
       if (!valid(picker)) {
         event.preventDefault();
         event.stopImmediatePropagation();
+
         guide(picker);
         return;
       }
@@ -481,6 +522,7 @@
       if (!valid(picker)) {
         event.preventDefault();
         event.stopImmediatePropagation();
+
         guide(picker);
         return;
       }
@@ -511,8 +553,7 @@
       state.resetTimer = null;
       state.chosen.clear();
 
-      // Do not automatically show warning
-      // when returning from checkout.
+      // Return silently without warning.
       state.attempted = false;
 
       state.purchasePending = false;
@@ -522,6 +563,7 @@
     });
   }
 
+  // Reset after browser Back navigation.
   window.addEventListener(
     'pageshow',
     event => {
@@ -536,6 +578,8 @@
 
     let queued = false;
 
+    // Monitor Shopify's dynamic product
+    // updates and restore warning elements.
     const observer = new MutationObserver(() => {
       if (queued) return;
 
