@@ -3634,33 +3634,3 @@ svg.spinner,
 }
 /* add-on-code gemini - Shopify Refresh Theme Loading Icon */
 
-/* 1. Force strict clipping on every card container level */
-.product-card-wrapper,
-.card-wrapper,
-.card,
-.card__inner,
-.card__media,
-.card .media {
-  overflow: hidden !important;
-  border-radius: inherit;
-}
-
-/* 2. Anchor the media wrapper and eliminate shifting */
-.card__inner {
-  position: relative !important;
-}
-
-/* 3. Force absolute images to remain strictly inside the media box */
-.card__media .media > img,
-.card-wrapper .media > img {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  bottom: 0 !important;
-  right: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  transform: none !important;
-  transition: opacity var(--duration-default) ease !important;
-}
