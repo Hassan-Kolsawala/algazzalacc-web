@@ -20,6 +20,17 @@
   Usage:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
+ <style>
+  .card__inner, .card__media, .media--hover-effect {
+    overflow: hidden !important;
+    contain: paint !important;
+  }
+  .media--hover-effect > img + img {
+    top: 0 !important;
+    transform: none !important;
+    margin-top: 0 !important;
+  }
+</style>
 {%- unless skip_styles -%}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
