@@ -3634,3 +3634,15 @@ svg.spinner,
 }
 /* add-on-code gemini - Shopify Refresh Theme Loading Icon */
 
+/* Fix Refresh theme product card hover image overflow */
+.card-wrapper .media,
+.card-wrapper .card__inner {
+  overflow: hidden !important;
+  position: relative;
+}
+
+.card-wrapper:hover .media > img:not(:only-child) {
+  transform: none !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
