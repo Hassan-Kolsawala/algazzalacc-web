@@ -94,10 +94,7 @@
     },
     "featured-collection-0": {
       "type": "featured-collection",
-      "custom_css": [
-        ".card__media,.card__media .media {overflow: hidden !important;}",
-        ".card-wrapper:hover .media.media--hover-effect > img + img {transform: scale(1.03);}"
-      ],
+      "custom_css": [],
       "name": "Body Support Cushions",
       "settings": {
         "collection": "body-support-cushions",
