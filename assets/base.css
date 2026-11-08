@@ -3634,15 +3634,16 @@ svg.spinner,
 }
 /* add-on-code gemini - Shopify Refresh Theme Loading Icon */
 
-/* Fix Refresh theme product card hover image overflow */
-.card-wrapper .media,
-.card-wrapper .card__inner {
+/* Fix for standalone Featured Product section media */
+.product__media-wrapper,
+.product__media-list,
+.product__media-item,
+.product__media-item .product__modal-opener,
+.product__media-item .media {
   overflow: hidden !important;
-  position: relative;
 }
 
-.card-wrapper:hover .media > img:not(:only-child) {
+.product__media-item .media > img {
   transform: none !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
+  top: 0 !important;
 }
