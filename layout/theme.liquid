@@ -307,10 +307,10 @@
       }
     </script>
 
-   {% comment %}
+   
 {% if template.name == 'product' %}
   {{ 'mandatory-variant.css' | asset_url | stylesheet_tag }}
-{% endif %} {% endcomment %}
+{% endif %} 
 
   </head>
 
@@ -450,9 +450,9 @@
 <!-- connecting zoho salesIQ to shopify -->
 {% endcomment %}
 
-{% comment %}
+
 {% if template.name == 'product' %}
   <script src="{{ 'mandatory-variant.js' | asset_url }}" defer></script>
-{% endif %} {% endcomment %}
+{% endif %} 
   </body>
 </html>
