@@ -3634,3 +3634,26 @@ svg.spinner,
 }
 /* add-on-code gemini - Shopify Refresh Theme Loading Icon */
 
+
+/* FIX: Product card second-image hover overflow */
+
+.product-card-wrapper .card__inner {
+  overflow: hidden !important;
+}
+
+.product-card-wrapper .card__media,
+.product-card-wrapper .card__media .media {
+  overflow: hidden !important;
+}
+
+/* Prevent images enlarging on hover */
+.product-card-wrapper .card__media .media > img {
+  transform: none !important;
+}
+
+/* Ensure second image fits inside card */
+.product-card-wrapper .card__media .media > img + img {
+  object-fit: contain !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
