@@ -3636,26 +3636,25 @@ svg.spinner,
 
 
 
-/* REFRESH THEME - PRODUCT CARD HOVER FIX */
 
-/* Clip images inside the product card border */
-.collection .product-card-wrapper .card__inner {
-  overflow: hidden !important;
-  border-radius: var(--border-radius);
-}
+/* Featured Collection - Fix Image Hover Overflow */
 
-/* Prevent images from bleeding outside */
-.collection .product-card-wrapper .card__media,
-.collection .product-card-wrapper .card__media .media {
+.card__inner,
+.card__media,
+.card__media .media {
   overflow: hidden !important;
 }
 
-/* Remove enlargement but keep second-image hover */
-.collection .product-card-wrapper
-.media.media--hover-effect > img,
-.collection .product-card-wrapper:hover
-.media.media--hover-effect > img {
+/* Keep second image within original dimensions */
+.card-wrapper:hover
+.media.media--hover-effect > img + img {
   transform: scale(1) !important;
-  transform-origin: center center !important;
 }
+
+/* Prevent zoom for single-image products */
+.card-wrapper:hover
+.media.media--hover-effect > img:first-child:only-child {
+  transform: scale(1) !important;
+}
+
 
