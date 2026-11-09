@@ -3637,24 +3637,26 @@ svg.spinner,
 
 
 
-/* Featured Collection - Fix Image Hover Overflow */
 
+/* Prevent Featured Collection cards from lifting */
+
+.card-wrapper:hover .card--card,
+.card-wrapper:hover .card--standard .card__inner {
+  transform: none !important;
+}
+
+/* Keep hover images inside the card */
 .card__inner,
 .card__media,
 .card__media .media {
   overflow: hidden !important;
 }
 
-/* Keep second image within original dimensions */
+/* Prevent secondary image zoom */
 .card-wrapper:hover
 .media.media--hover-effect > img + img {
   transform: scale(1) !important;
 }
 
-/* Prevent zoom for single-image products */
-.card-wrapper:hover
-.media.media--hover-effect > img:first-child:only-child {
-  transform: scale(1) !important;
-}
 
 
