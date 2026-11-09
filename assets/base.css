@@ -3637,8 +3637,8 @@ svg.spinner,
 
 
 
-
-/* Preserve vertical lift with space above cards */
+/* add-on-code chatgpt - fix for image hover on product card bleeds out of the card border. Preserve vertical lift with space above cards */
+/*  */
 @media screen and (min-width: 750px) {
   .product-grid > .grid__item {
     padding-top: 1.5rem !important;
@@ -3657,7 +3657,7 @@ svg.spinner,
     var(--image-padding)
   ) !important;
 }
-
+/* add-on-code chatgpt - fix for image hover on product card bleeds out of the card border. Preserve vertical lift with space above cards */
 
 
 
