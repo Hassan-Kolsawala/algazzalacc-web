@@ -3638,25 +3638,26 @@ svg.spinner,
 
 
 
-/* Prevent Featured Collection cards from lifting */
-
-.card-wrapper:hover .card--card,
-.card-wrapper:hover .card--standard .card__inner {
-  transform: none !important;
+/* Preserve vertical lift with space above cards */
+@media screen and (min-width: 750px) {
+  .product-grid > .grid__item {
+    padding-top: 1.5rem !important;
+  }
 }
 
-/* Keep hover images inside the card */
-.card__inner,
+/* Keep product images clipped to card edges */
 .card__media,
 .card__media .media {
   overflow: hidden !important;
 }
 
-/* Prevent secondary image zoom */
-.card-wrapper:hover
-.media.media--hover-effect > img + img {
-  transform: scale(1) !important;
+.card__media {
+  border-radius: calc(
+    var(--border-radius) - var(--border-width) -
+    var(--image-padding)
+  ) !important;
 }
+
 
 
 
