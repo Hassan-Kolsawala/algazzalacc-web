@@ -1,4 +1,5 @@
 
+/* add-on-code ChatGpt - Make Variant Selection Mandatory  */
 (() => {
   const GROUP =
     'fieldset.product-form__input, .product-form__input--dropdown';
@@ -610,3 +611,5 @@
     start();
   }
 })();
+
+/* add-on-code ChatGpt - Make Variant Selection Mandatory  */
