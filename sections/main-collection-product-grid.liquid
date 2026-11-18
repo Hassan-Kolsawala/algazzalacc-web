@@ -190,11 +190,19 @@
         {%- endif -%}
       </div>
     </div>
+{% comment %}
+<!-- Designed by OnHOW YouTube Channel tweaked in gemini  -->
+<!-- add-on-code gemini : Shopify Infinite Scroll Code Explanation -->
+{% endcomment %}
     {% render 'infinite-scroll',
       next_page: paginate.next.url,
       page_size: paginate.pages,
       end_text: "You reached the end..."
     %}
+{% comment %}
+<!-- Designed by OnHOW YouTube Channel tweaked in gemini  -->
+<!-- add-on-code gemini : Shopify Infinite Scroll Code Explanation -->
+{% endcomment %}
   {%- endpaginate -%}
   {% if section.settings.image_shape == 'arch' %}
     {{ 'mask-arch.svg' | inline_asset_content }}
