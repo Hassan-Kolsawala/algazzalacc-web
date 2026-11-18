@@ -105,6 +105,8 @@
   color: rgb(var(--color-button-text, 255, 255, 255));
 }
 
+
+/* add-on-code ChatGpt - Make Variant Selection Mandatory  */
 /* ==========================================
    PRODUCT PURCHASE BUTTON STYLING
    Shopify Refresh Theme
@@ -154,3 +156,4 @@ shopify-accelerated-checkout {
 .shopify-payment-button {
   border-radius: 25px;
 }
+/* add-on-code ChatGpt - Make Variant Selection Mandatory  */
