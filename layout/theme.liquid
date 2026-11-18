@@ -307,11 +307,11 @@
       }
     </script>
 
-   
+<!-- add-on-code ChatGpt - Make Variant Selection Mandatory  -->
 {% if template.name == 'product' %}
   {{ 'mandatory-variant.css' | asset_url | stylesheet_tag }}
 {% endif %} 
-
+<!-- add-on-code ChatGpt - Make Variant Selection Mandatory  -->
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
