@@ -562,7 +562,7 @@
         <!-- CTAs -->
 
         <div class="cart__ctas" {{ block.shopify_attributes }}>
-          
+          {% assign local_delivery_min = 3 %}
 {% if cart.total_price < local_delivery_min and cart.item_count > 0 %}
   {% assign remaining_amount = local_delivery_min | minus: cart.total_price | money %}
   <div style="background-color: #fff8e6; border: 1px solid #f0c36d; color: #333; padding: 10px 12px; border-radius: 6px; margin-bottom: 12px; font-size: 1.3rem;">
