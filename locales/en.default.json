@@ -539,7 +539,9 @@
   "shopify": {
     "checkout": {
       "contact": {
-        "optional_postal_code_label": "Postal code"
+        "optional_postal_code_label": "Postal Code (Required*)",
+        "postal_code_label": "Postal Code (Required*)",
+        "postal_code_placeholder": "Postal Code (Required*)"
       },
       "merchandise_unavailable_in_buyer_location": {
         "change_address_or_remove": "Please edit your address and add your postal code or {{ remove_action }}",
