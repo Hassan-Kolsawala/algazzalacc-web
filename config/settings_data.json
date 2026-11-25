@@ -152,8 +152,8 @@
     },
     "content_for_index": [],
     "blocks": {
-      "7445024463111146658": {
-        "type": "shopify://apps/pwa-ios-android-app/blocks/app-block/4ac46764-72e4-4b90-933d-c63e9b80bb36",
+      "1303429925763697123": {
+        "type": "shopify://apps/napps/blocks/webbanner/a5af0bc2-c9ec-4701-9d40-46a850ee18d4",
         "disabled": false,
         "settings": {}
       }
